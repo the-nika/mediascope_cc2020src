@@ -1,0 +1,265 @@
+doctype html
+html(lang="ru")
+
+	block vars
+
+	head
+		meta(charset="utf-8")
+		title Mediascope Clients Conference 2020
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+
+		// .......... Favicons .......... 
+		link(rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png")
+		link(rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png")
+		link(rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png")
+		link(rel="manifest" href="img/favicons/site.webmanifest")
+		link(rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5")
+		link(rel="shortcut icon" href="img/favicons/favicon.ico")
+		meta(name="msapplication-TileColor" content="#ffffff")
+		meta(name="msapplication-config" content="img/favicons/browserconfig.xml")
+		meta(name="theme-color" content="#ffffff")
+		// .......... End Favicons .......... 
+
+		// .......... Styles .......... 
+		style.
+			.preloader {
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100vw;
+				height: 100vh;
+				z-index: 9999;
+				background: white url(img/loader.svg) center no-repeat;
+				background-size: 80px auto;
+			}
+		// inject:css 
+		// endinject 
+		link(rel="stylesheet" href="css/styles.css")
+		// .......... End Styles .......... 
+	body
+		div#site_preloader.preloader
+
+		header.panel.screen
+			.screen__inner
+				.logo__box
+					.logo
+						img(src="img/logo.svg" alt="Mediascope Clients Conference 2020")
+					h1.heading
+						| Mediascope Clients
+						br
+						| Conference 
+						span.ff--mono.color--yellow 2020
+				button.menu__toggle.js-menu-toggle
+					span
+					span
+					span
+
+		nav.menu
+			ul.menu__list
+				li.menu__item
+					a(href="//mediascope.net" target="_black") О Mediascope
+				li.menu__item
+					a(href="#speakers" target="_black") Спикеры
+				li.menu__item
+					a(href="#program" target="_black") Программа
+
+		.screen.intro
+			.screen__inner
+				.intro__grid
+					div
+						h2.title
+							span.color--teal The power 
+							span.color--yellow 
+								| of
+								br
+								| data 
+							| knowledge 
+						p.hashtag #Mediascopeсonf
+					div
+						.datebox
+							.datebox__inner 01/12
+				div.btn__box
+					a.btn(href="#" target="_blank") Регистрация
+					br
+					a.btn.btn--fill(href="#" target="_blank") Где и как смотреть трансляцию
+
+		.screen.about
+			.screen__inner
+				h2.title О конференции
+				p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				.broadcast__about
+					p Где и как смотреть трансляцию (блок дорабатывается - нужна информация)
+
+		.screen.broadcast
+			.screen__inner
+				h2.title.title--lg Трансляция
+				.broadcast__box
+					.broadcast__player
+						.broadcast__info Дискуссионная панель «Viewability: отрицание, гнев, торг, принятие… Где мы сегодня и что будет завтра?»
+						.broadcast__video
+							video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="broadcast-video" preload="none" poster="img/posters/broadcast.jpg" playsinline data-setup='{"fluid": true}')
+								source(src="//www.youtube.com/watch?v=xSo7WElQfWs" type="video/youtube")
+						.broadcast__select 
+							select
+								option(value="0") Выбрать плеер
+								option(value="1") Выбрать плеер
+								option(value="2") Выбрать плеер
+					.broadcast__panel
+						p.broadcast__label Вы смотрите:
+						p.breadcast__caption Название выступления спикера
+						hr
+						p.broadcast__label Далее в трансляции:
+						p.broadcast__time 10:15
+						p.broadcast__next Название следующего выступления
+						p.broadcast__time 12:30
+						p.broadcast__next Где мы сегодня и что будет завтра?»
+						a.btn.btn--gray(href="#" target="_blank") Спикеры
+						a.btn.btn--gray(href="#" target="_blank") Программа
+
+		.screen.program
+			.screen__inner
+				h2.title.title--lg Программа
+				.program__table
+					.program__row
+						.program__time 10:00 - 18:00
+						.program__speech Сбор гостей, регистрация, welcome
+					.program__row
+						.program__time 10:00 - 18:00
+						.program__speech
+							p Деловая программа.
+							p.color--teal The power of data knowledge
+							p.program__small Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+					.program__row
+						.program__time 10:00 - 18:00
+						.program__speech The power of data knowledge
+					.program__row
+						.program__time 10:00 - 18:00
+						.program__speech Завершение мероприятия
+
+		.screen.speakers
+			.screen__inner
+				h2.title.title--lg Спикеры
+				.speakers__table
+					.speakers__row
+						.speakers__card
+							.speakers__photo
+								img(src="img/speakers/k_achkasova.jpg" alt="")
+							.speakers__data
+								.speakers__name
+									| Ксения&nbsp;
+									br
+									| Ачкасова
+								.speakers__vocation Должность
+						.speakers__card
+							.speakers__photo
+								img(src="img/speakers/m_pikuleva.jpg" alt="")
+							.speakers__data
+								.speakers__name
+									| Марина&nbsp;
+									br
+									| Пикулева
+								.speakers__vocation Должность
+					.speakers__row
+						.speakers__card
+							.speakers__photo
+								img(src="img/speakers/r_tagiev.jpg" alt="")
+							.speakers__data
+								.speakers__name
+									| Руслан&nbsp;
+									br
+									| Тагиев
+								.speakers__vocation Должность
+						.speakers__card
+							.speakers__photo
+								img(src="img/speakers/l_gleizer.jpg" alt="")
+							.speakers__data
+								.speakers__name
+									| Лев&nbsp;
+									br
+									| Глейзер
+								.speakers__vocation Должность
+					.speakers__row
+						.speakers__card
+							.speakers__photo
+								img(src="img/speakers/m_zotov.jpg" alt="")
+							.speakers__data
+								.speakers__name
+									| Михаил&nbsp;
+									br
+									| Зотов
+								.speakers__vocation Должность
+		.screen.materials
+			.screen__inner
+				h2.title.title--lg
+					| Материалы
+					br
+					| конференции
+				.materials__table
+					- for (var i = 0; i < 3; i++)
+						.materials__card
+							div
+								.materials__player
+									video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="materials-video-"+i preload="none" poster="img/posters/broadcast.jpg" playsinline data-setup='{"fluid": true}')
+										source(src="//www.youtube.com/watch?v=xSo7WElQfWs" type="video/youtube")
+								.materials__download
+									a(href="#") Скачать презентацию в PDF
+									a.materials__icon(href="#")
+										img(src="img/download.svg" alt="")
+							div
+								h3.materials__title 25 лет: из прошлого в будущее
+								.materials__speaker Ксения Ачкасова
+								.materials__vocation Исполнительный директор
+		.screen.publications
+			.screen__inner
+				h2.title.title--lg Публикация
+				.publications__table.materials__table
+					.materials__card
+						div
+							.materials__image
+								img(src="img/posters/broadcast.jpg" alt="")
+						div
+							h3.materials__title Интересный заголовок в две строчки
+							.materials__vocation Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+		.screen.footer
+			.screen__inner
+				.footer__row
+					div
+						img.footer__logo(src="img/logo.svg" alt="")
+					div
+						ul.menu__list
+							li.menu__item
+								a(href="//mediascope.net" target="_black") О Mediascope
+							li.menu__item
+								a(href="#speakers" target="_black") Спикеры
+							li.menu__item
+								a(href="#program" target="_black") Программа
+						.footer__contacts
+							p.color--teal ОСТАВАЙТЕСЬ С НАМИ НА СВЯЗИ
+							p
+								a(href="#") +7 (495) 935 87 18
+								br
+								a(href="#") CONF2020@MEDIASCOPE.NET
+								br
+								a.footer__facebook(href="#" target="_blank") 
+									img(src="img/fb.svg" alt="")
+									span Подпишись
+						p.footer__url conf.mediascope.net
+
+		// .......... Scripts .......... 
+
+		// inject:js 
+		// endinject 
+		script.
+			//.......................
+			//...... Preloader ......
+			//.......................
+			function hidePreloader(){
+				$(function() {
+					$('.preloader').fadeOut(500).delay(500, function(){
+						$(this).css('display', 'none').dequeue();
+					});
+				});
+			}
+			window.onload = hidePreloader();
+		script(src="js/scripts.js")
+		// .......... End Scripts .......... 
