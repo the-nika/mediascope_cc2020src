@@ -147,7 +147,7 @@ function css(){
 			outputStyle: 'expanded'
 		}))
 		.pipe(autoprefixer('last 2 version'))
-		// .pipe(uglifycss())
+		.pipe(uglifycss())
 		.pipe(dest(dir.dist.css));
 }
 

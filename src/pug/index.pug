@@ -40,7 +40,7 @@ html(lang="ru")
 		div#site_preloader.preloader
 
 		header.panel.screen
-			.screen__inner
+			.screen__inner.panel__inner
 				.logo__box
 					.logo
 						img(src="img/logo.svg" alt="Mediascope Clients Conference 2020")
@@ -59,9 +59,9 @@ html(lang="ru")
 				li.menu__item
 					a(href="//mediascope.net" target="_black") О Mediascope
 				li.menu__item
-					a(href="#speakers" target="_black") Спикеры
+					a(href="#speakers") Спикеры
 				li.menu__item
-					a(href="#program" target="_black") Программа
+					a(href="#program") Программа
 
 		.screen.intro
 			.screen__inner
@@ -78,17 +78,20 @@ html(lang="ru")
 					div
 						.datebox
 							.datebox__inner 01/12
+							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
+								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fff")
 				div.btn__box
-					a.btn(href="#" target="_blank") Регистрация
+					a.btn.btn--fill(href="#" target="_blank") Регистрация
 					br
-					a.btn.btn--fill(href="#" target="_blank") Где и как смотреть трансляцию
+					a.btn(href="#about-broadcast") Где и как смотреть трансляцию
 
 		.screen.about
 			.screen__inner
 				h2.title О конференции
 				p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				.broadcast__about
-					p Где и как смотреть трансляцию (блок дорабатывается - нужна информация)
+				#about-broadcast
+					.broadcast__about
+						p Где и как смотреть трансляцию (блок дорабатывается - нужна информация)
 
 		.screen.broadcast
 			.screen__inner
@@ -97,26 +100,26 @@ html(lang="ru")
 					.broadcast__player
 						.broadcast__info Дискуссионная панель «Viewability: отрицание, гнев, торг, принятие… Где мы сегодня и что будет завтра?»
 						.broadcast__video
-							video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="broadcast-video" preload="none" poster="img/posters/broadcast.jpg" playsinline data-setup='{"fluid": true}')
-								source(src="//www.youtube.com/watch?v=xSo7WElQfWs" type="video/youtube")
+							video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="broadcast-video" preload="none" poster="img/posters/broadcast.jpg" playsinline data-setup='{"fluid": true}' controls)
+								source(src="https://www.youtube.com/watch?v=xSo7WElQfWs" type="video/youtube")
 						.broadcast__select 
 							select
 								option(value="0") Выбрать плеер
-								option(value="1") Выбрать плеер
-								option(value="2") Выбрать плеер
+								option(value="1") Плеер 1
+								option(value="2") Плеер 2
+							.select__arrow
 					.broadcast__panel
 						p.broadcast__label Вы смотрите:
-						p.breadcast__caption Название выступления спикера
-						hr
+						p.broadcast__caption Название выступления спикера
 						p.broadcast__label Далее в трансляции:
 						p.broadcast__time 10:15
 						p.broadcast__next Название следующего выступления
 						p.broadcast__time 12:30
 						p.broadcast__next Где мы сегодня и что будет завтра?»
-						a.btn.btn--gray(href="#" target="_blank") Спикеры
-						a.btn.btn--gray(href="#" target="_blank") Программа
+						a.btn.btn--gray(href="#") Спикеры
+						a.btn.btn--gray(href="#") Программа
 
-		.screen.program
+		.screen.program#program
 			.screen__inner
 				h2.title.title--lg Программа
 				.program__table
@@ -136,29 +139,10 @@ html(lang="ru")
 						.program__time 10:00 - 18:00
 						.program__speech Завершение мероприятия
 
-		.screen.speakers
+		.screen.speakers#speakers
 			.screen__inner
 				h2.title.title--lg Спикеры
 				.speakers__table
-					.speakers__row
-						.speakers__card
-							.speakers__photo
-								img(src="img/speakers/k_achkasova.jpg" alt="")
-							.speakers__data
-								.speakers__name
-									| Ксения&nbsp;
-									br
-									| Ачкасова
-								.speakers__vocation Должность
-						.speakers__card
-							.speakers__photo
-								img(src="img/speakers/m_pikuleva.jpg" alt="")
-							.speakers__data
-								.speakers__name
-									| Марина&nbsp;
-									br
-									| Пикулева
-								.speakers__vocation Должность
 					.speakers__row
 						.speakers__card
 							.speakers__photo
@@ -168,6 +152,25 @@ html(lang="ru")
 									| Руслан&nbsp;
 									br
 									| Тагиев
+								.speakers__vocation Должность
+						.speakers__card
+							.speakers__photo
+								img(src="img/speakers/k_achkasova.jpg" alt="")
+							.speakers__data
+								.speakers__name
+									| Ксения&nbsp;
+									br
+									| Ачкасова
+								.speakers__vocation Должность
+					.speakers__row
+						.speakers__card
+							.speakers__photo
+								img(src="img/speakers/m_pikuleva.jpg" alt="")
+							.speakers__data
+								.speakers__name
+									| Марина&nbsp;
+									br
+									| Пикулева
 								.speakers__vocation Должность
 						.speakers__card
 							.speakers__photo
@@ -199,8 +202,8 @@ html(lang="ru")
 						.materials__card
 							div
 								.materials__player
-									video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="materials-video-"+i preload="none" poster="img/posters/broadcast.jpg" playsinline data-setup='{"fluid": true}')
-										source(src="//www.youtube.com/watch?v=xSo7WElQfWs" type="video/youtube")
+									video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="materials-video-"+i preload="none" poster="img/posters/broadcast.jpg" playsinline data-setup='{"fluid": true}' controls)
+										source(src="https://www.youtube.com/watch?v=xSo7WElQfWs" type="video/youtube")
 								.materials__download
 									a(href="#") Скачать презентацию в PDF
 									a.materials__icon(href="#")
@@ -230,9 +233,9 @@ html(lang="ru")
 							li.menu__item
 								a(href="//mediascope.net" target="_black") О Mediascope
 							li.menu__item
-								a(href="#speakers" target="_black") Спикеры
+								a(href="#speakers") Спикеры
 							li.menu__item
-								a(href="#program" target="_black") Программа
+								a(href="#program") Программа
 						.footer__contacts
 							p.color--teal ОСТАВАЙТЕСЬ С НАМИ НА СВЯЗИ
 							p
@@ -240,7 +243,7 @@ html(lang="ru")
 								br
 								a(href="#") CONF2020@MEDIASCOPE.NET
 								br
-								a.footer__facebook(href="#" target="_blank") 
+								a.footer__facebook(href="//www.facebook.com/MediascopeRu" target="_blank") 
 									img(src="img/fb.svg" alt="")
 									span Подпишись
 						p.footer__url conf.mediascope.net
