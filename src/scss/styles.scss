@@ -186,6 +186,7 @@ p{
 	border-radius: size_sm(3px);
 	border: size_sm(1px) solid $teal;
 	background-color: transparent;
+	transition: background-color .3s ease-in-out, color .3s ease-in-out, border-color .3s ease-in-out;
 	&,
 	&:hover{
 		text-decoration: none;
@@ -196,6 +197,11 @@ p{
 	}
 	&--fill{
 		background-color: $teal;
+		&:hover{
+			color: $gray;
+			background-color: $yellow;
+			border-color: $yellow;
+		}
 	}
 	&--gray{
 		border-color: $gray;
@@ -833,6 +839,12 @@ p{
 				text-align: right;
 				font-size: fz_sm(32px);
 			}
+			a{
+				transition: color .3s ease-in-out;
+				&:hover{
+					color: $yellow;
+				}
+			}
 			&__toggle{
 				transition-delay: .6s;
 				transform: rotate(45deg);
@@ -1030,10 +1042,42 @@ p{
 .video-js:hover .vjs-big-play-button,
 .video-js .vjs-big-play-button:focus{
 	border-color: transparent;
+	outline: none;
 	background-color: transparent;
+	transform-origin: center;
+	transform: scale(1.5);
+	transition: transform .3s ease-in-out;
 }
-
-
+.vjs-poster{
+	&::before{
+		content: '';
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background-color: $semidark;
+		opacity: 0;
+		transition: opacity .3s ease-in-out;
+	}
+}
+// .vjs-icon-play:before, 
+// .video-js .vjs-play-control .vjs-icon-placeholder:before, 
+.video-js .vjs-big-play-button .vjs-icon-placeholder:before {
+	content: '';
+	background: transparent url("data:image/svg+xml,%3Csvg width='18' height='19' viewBox='0 0 18 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16.5 6.90192C18.5 8.05663 18.5 10.9434 16.5 12.0981L5.25 18.5933C3.25 19.748 0.75 18.3046 0.75 15.9952V3.00481C0.75 0.695406 3.25 -0.747968 5.25 0.406733L16.5 6.90192Z' fill='white'/%3E%3C/svg%3E") no-repeat center;
+} 
+.video-js:hover {
+	.vjs-big-play-button{
+		transform: scale(1.8);
+	}
+	.vjs-poster{
+		&::before{
+			opacity: 0.3;
+		}
+	}
+}
 
 .ff--mono{
 	font-family: $ff_mono;
