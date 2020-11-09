@@ -1,4 +1,4 @@
-// FOR DEBUG ONLY!
+/* FOR DEBUG ONLY!
 window.onload = function(e){
 	jQuery(document).ready(function($){
 		function getWindowSize(){
@@ -21,7 +21,7 @@ window.onload = function(e){
 		getWindowSize();
 		$(window).on('resize', getWindowSize);
 	});
-};
+};*/
 // FOR DEBUG ONLY!
 
 

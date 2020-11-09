@@ -183,7 +183,7 @@ p{
 	font-weight: bold;
 	letter-spacing: -1.5%;
 	color: white;
-	border-radius: size_sm(3px);
+	border-radius: 0;//size_sm(3px);
 	border: size_sm(1px) solid $teal;
 	background-color: transparent;
 	transition: background-color .3s ease-in-out, color .3s ease-in-out, border-color .3s ease-in-out;
@@ -236,12 +236,15 @@ p{
 			flex: 0 0 auto;
 		}
 	}
+	@media ($is_landscape) {
+		padding-top: size_lg(48px);
+	}
 }
 	.logo{
 		&__box{
 			display: flex;
 			align-items: center;
-			margin-top: size_sm(77px - 32px);
+			margin-top: size_sm(16px);//size_sm(77px - 32px);
 		}
 		margin-right: size_sm(91px - 74px);
 		img{
@@ -277,12 +280,18 @@ p{
 		line-height: fz_sm(40.8px);
 		margin-bottom: 0;
 	}
+	.btn{
+		border-radius: size_sm(3px);
+	}
 	@media ($is_landscape) {
 		padding-top: size_lg(200px - 171px);
 		.title{
 			font-size: fz_lg(58px);
 			line-height: fz_lg(60.8px);
 			margin-bottom: fz_lg(12px);
+		}
+		.btn{
+			border-radius: size_lg(3px);
 		}
 		&__grid{
 			display: flex;
@@ -302,9 +311,9 @@ p{
 	}
 	.datebox{
 		position: relative;
-		width: size_sm(177px);
-		height: size_sm(201px);
-		margin: size_sm(24px) auto;
+		width: size_sm(177px / 3 * 2.5);
+		height: size_sm(201px / 3 * 2.5);
+		margin: size_sm(16px) auto;//size_sm(24px) auto;
 		&__inner{
 			position: absolute;
 			left: 0;
@@ -321,7 +330,7 @@ p{
 		@media ($is_landscape) {
 			width: size_lg(237px);
 			height: size_lg(269px);
-			margin-right: size_lg(1088px - 959px);
+			margin: size_lg(20px) size_lg(1088px - 959px) size_lg(20px) auto;
 			&__inner{
 				font-size: fz_lg(35px);
 			}
@@ -336,15 +345,18 @@ p{
 		border: size_sm(1px) solid $gray;
 	}
 	&__about{
-		font-size: fz_sm(24px);
-		line-height: 140%;
-		color: $teal;
-
-		// REMOVE !!!
-
-		p{
-			padding-top: size_sm(72px - 16px);
-			padding-bottom: size_sm(72px - 16px);
+		font-size: fz_sm(17px);
+		line-height: fz_sm(23.8px);
+		text-align: center;
+		padding-top: size_sm(64px);
+		.title{
+			line-height: 120%;
+			letter-spacing: -1.5%;
+			color: $teal;
+			margin-bottom: size_sm(32px);
+		}
+		.btn__box{
+			margin-top: size_sm(32px);
 		}
 	}
 	&__panel{
@@ -424,7 +436,6 @@ p{
 	.btn{
 		display: block;
 		margin-top: size_sm(16px);
-		border-radius: 0;
 	}
 	@media ($is_landscape) {
 		position: relative;
@@ -441,7 +452,34 @@ p{
 			background-size: 100% auto;
 		}
 		&__about{
+			font-size: fz_lg(19px);
+			line-height: fz_lg(30.4px);
 			border-width: size_lg(1px);
+			padding-top: size_lg(64px);
+			margin-top: size_lg(54px);
+			background-image: url(../img/bg_broadcast_about_left.svg), url(../img/bg_broadcast_about_right.svg);
+			background-repeat: no-repeat, no-repeat;
+			background-position: size_lg(96px - 64px) 50%, size_lg(869px - 64px) 50%;
+			background-size: size_lg(168px) size_lg(124px), size_lg(168px) size_lg(124px);
+			.title{
+				font-size: fz_lg(32px);
+				margin-bottom: size_lg(32px);
+			}
+			.btn__box{
+				margin-top: size_lg(32px);
+				justify-content: center;
+			}
+			.btn{
+				max-width: size_lg(230px);
+				&:last-of-type{
+					margin-right: 0;
+				}
+			}
+		}
+		&__info{
+			max-width: size_lg(476px);
+			margin-left: auto;
+			margin-right: auto;
 		}
 		&__box{
 			position: relative;
@@ -492,18 +530,6 @@ p{
 					height: size_lg(8px);
 					border-width: 0 size_lg(2px) size_lg(2px) 0;
 				}
-			}
-		}
-		&__about{
-			font-size: fz_lg(32px);
-			margin-top: size_lg(58px - 25px);
-
-			// REMOVE !!!
-
-			p{
-				padding-top: 0;
-				padding-bottom: size_lg(267px - 108px);
-				max-width: size_lg(540px);
 			}
 		}
 		&__caption{
@@ -608,6 +634,7 @@ p{
 		}
 	}
 	&__vocation{
+		line-height: 130%;
 		color: $teal;
 	}
 	@media ($is_landscape) {

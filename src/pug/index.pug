@@ -80,20 +80,33 @@ html(lang="ru")
 							.datebox__inner 01/12
 							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
 								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fff")
-				div.btn__box
-					a.btn.btn--fill(href="#" target="_blank") Регистрация
+				.btn__box
+					a.btn.btn--fill(href="//mediascopeconference.timepad.ru/event/1477146/" target="_blank") Регистрация
 					br
 					a.btn(href="#about-broadcast") Где и как смотреть трансляцию
 
 		.screen.about
 			.screen__inner
 				h2.title О конференции
-				p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				p.
+					Ежегодно мы приглашаем вас, наших уважаемых клиентов, встретиться с нами и обсудить текущие проекты компании, задачи на предстоящий год, обменяться мнениями о состоянии рекламной и исследовательской индустрии. Мы подробно и с большим удовольствием делимся с вами новостями о каждом из направлений исследований, подводим итоги года и анонсируем планы по развитию.
+				p
+					strong В этом году наша конференция состоится в онлайн-формате. Посмотреть трансляцию вы сможете по предварительной регистрации.
+				p
+					strong Ждем вас 1 декабря 2020 года!
 				#about-broadcast
 					.broadcast__about
-						p Где и как смотреть трансляцию (блок дорабатывается - нужна информация)
+						h3.title Где и как смотреть трансляцию
+						p.broadcast__info
+							| Конференция пройдет в онлайн-режиме.
+							br
+							| Трансляция будет проходить одновременно на нескольких площадках.
+						.btn__box
+							a.btn.btn--gray(href="/") conf.mediascope.net
+							br
+							a.btn.btn--gray(href="https://business.facebook.com/events/811737422923199/" target="_blank") Facebook
 
-		.screen.broadcast
+		// .screen.broadcast
 			.screen__inner
 				h2.title.title--lg Трансляция
 				.broadcast__box
@@ -146,52 +159,67 @@ html(lang="ru")
 					.speakers__row
 						.speakers__card
 							.speakers__photo
-								img(src="img/speakers/r_tagiev.jpg" alt="")
+								img(src="img/speakers/r_tagiev.png" alt="")
 							.speakers__data
 								.speakers__name
 									| Руслан&nbsp;
 									br
 									| Тагиев
-								.speakers__vocation Должность
+								.speakers__vocation
+									| генеральный директор
+									br
+									| Mediascope
 						.speakers__card
 							.speakers__photo
-								img(src="img/speakers/k_achkasova.jpg" alt="")
+								img(src="img/speakers/k_achkasova.png" alt="")
 							.speakers__data
 								.speakers__name
 									| Ксения&nbsp;
 									br
 									| Ачкасова
-								.speakers__vocation Должность
+								.speakers__vocation
+									| исполнительный директор
+									br
+									| Mediascope
 					.speakers__row
 						.speakers__card
 							.speakers__photo
-								img(src="img/speakers/m_pikuleva.jpg" alt="")
+								img(src="img/speakers/m_pikuleva.png" alt="")
 							.speakers__data
 								.speakers__name
 									| Марина&nbsp;
 									br
 									| Пикулева
-								.speakers__vocation Должность
+								.speakers__vocation
+									| советник генерального
+									br
+									| директора Mediascope
 						.speakers__card
 							.speakers__photo
-								img(src="img/speakers/l_gleizer.jpg" alt="")
+								img(src="img/speakers/l_gleizer.png" alt="")
 							.speakers__data
 								.speakers__name
 									| Лев&nbsp;
 									br
 									| Глейзер
-								.speakers__vocation Должность
+								.speakers__vocation
+									| директор по специальным
+									br
+									| исследованиям Mediascope
 					.speakers__row
 						.speakers__card
 							.speakers__photo
-								img(src="img/speakers/m_zotov.jpg" alt="")
+								img(src="img/speakers/m_zotov.png" alt="")
 							.speakers__data
 								.speakers__name
 									| Михаил&nbsp;
 									br
 									| Зотов
-								.speakers__vocation Должность
-		.screen.materials
+								.speakers__vocation
+									| коммерческий директор
+									br
+									| Mediascope
+		// .screen.materials
 			.screen__inner
 				h2.title.title--lg
 					| Материалы
@@ -212,7 +240,7 @@ html(lang="ru")
 								h3.materials__title 25 лет: из прошлого в будущее
 								.materials__speaker Ксения Ачкасова
 								.materials__vocation Исполнительный директор
-		.screen.publications
+		// .screen.publications
 			.screen__inner
 				h2.title.title--lg Публикация
 				.publications__table.materials__table
@@ -239,11 +267,11 @@ html(lang="ru")
 						.footer__contacts
 							p.color--teal ОСТАВАЙТЕСЬ С НАМИ НА СВЯЗИ
 							p
-								a(href="#") +7 (495) 935 87 18
+								a(href="tel:+74959358718") +7 (495) 935 87 18
 								br
-								a(href="#") CONF2020@MEDIASCOPE.NET
+								a(href="mailto:CONF2020@MEDIASCOPE.NET") CONF2020@MEDIASCOPE.NET
 								br
-								a.footer__facebook(href="//www.facebook.com/MediascopeRu" target="_blank") 
+								a.footer__facebook(href="//business.facebook.com/events/811737422923199/" target="_blank") 
 									img(src="img/fb.svg" alt="")
 									span Подпишись
 						p.footer__url conf.mediascope.net
