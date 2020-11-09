@@ -593,6 +593,11 @@ p{
 		background-size: size_lg(98px) auto;
 		font-size: fz_lg(32px);
 		line-height: fz_lg(40.8px);
+		&__table{
+			max-width: 75%;
+			margin-left: auto;
+			margin-right: auto;
+		}
 		&__row{
 			display: flex;
 			justify-content: flex-start;//space-between;
@@ -641,33 +646,41 @@ p{
 		&__row{
 			display: flex;
 			justify-content: flex-start;//space-between;
+			&:first-child{
+				.speakers__card:first-child{
+					margin-left: size_lg(1007px / 6);
+				}
+			}
 		}
 		&__card{
-			margin-bottom: size_lg(53px - 21px);
-			margin-right: size_lg(576px - 451px);
+			margin-bottom: size_lg(32px);
+			margin-right: size_lg(125px / 3 * 2);
 			text-align: left;
-			width: size_lg(387px);
+			width: size_lg(387px / 3 * 2);
 			display: flex;
 		}
 		&__photo{
 			flex: 0 0 auto;
-			max-width: size_lg(180px);
-			margin: 0 size_lg(87px - 56px) 0 0;
+			max-width: size_lg(180px / 3 * 2);
+			margin: 0 size_lg(32px / 3 * 2) 0 0;
 			img{
-				width: size_lg(180px);
-				height: size_lg(203px);
+				width: size_lg(180px / 3 * 2);
+				height: size_lg(203px / 3 * 2);
 			}
 		}
 		&__data{
 			flex: 0 0 auto;
 		}
 		&__name{
-			font-size: fz_lg(36px);
-			line-height: fz_lg(47.8px);
-			margin-bottom: size_lg(53px - 32px);
+			font-size: fz_lg(36px / 3 * 2);
+			line-height: fz_lg(47.8px / 3 * 2);
+			margin-bottom: size_lg(21px);
 			br{
 				display: block;
 			}
+		}
+		&__vocation{
+			font-size: fz_lg(19px / 2 * 1.2);
 		}
 	}
 }
@@ -952,8 +965,10 @@ p{
 	&__logo{
 		display: block;
 		max-width: none;
-		width: size_sm(86px);
+		// width: size_sm(86px);
 		margin: 0 auto size_sm(907px - 874px);
+		width: size_sm(56px);
+		height: size_sm(63px);	
 	}
 	&__contacts{
 		font-size: fz_sm(17px);
@@ -1006,8 +1021,10 @@ p{
 			}
 		}
 		&__logo{
-			width: size_lg(86px);
+			// width: size_lg(86px);
 			margin: 0 size_lg(260px - 150px) 0 0;
+			width: size_lg(56px);
+			height: size_lg(63px);
 		}
 		.menu{
 			&__list{
