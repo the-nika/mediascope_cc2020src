@@ -579,13 +579,19 @@ p{
 			}
 		}
 	}
+	&__speech{
+		p{
+			line-height: 120%;
+		}
+		.program__small{
+			font-size: fz_sm(19px);
+			line-height: 140%;
+		}
+	}
 	&__time{
 		font-family: $ff_mono;
 		color: $teal;
 		margin-bottom: size_sm(24px);
-	}
-	&__small{
-		font-size: fz_sm(19px);
 	}
 	@media ($is_landscape) {
 		background-image: url(../img/bg_program.svg);
@@ -611,8 +617,10 @@ p{
 			flex: 0 0 size_lg(370px - 64px);
 			margin-bottom: 0;
 		}
-		&__small{
-			font-size: fz_lg(19px);
+		&__speech{
+			.program__small{
+				font-size: fz_lg(19px);
+			}
 		}
 	}
 }
@@ -647,6 +655,7 @@ p{
 			display: flex;
 			justify-content: flex-start;//space-between;
 			&:first-child{
+				margin-bottom: size_lg(20px);
 				.speakers__card:first-child{
 					margin-left: size_lg(1007px / 6);
 				}
