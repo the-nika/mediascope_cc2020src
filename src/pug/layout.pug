@@ -1,0 +1,287 @@
+doctype html
+html(lang=lang)
+
+	block vars
+
+	head
+		meta(charset="utf-8")
+		title=ms_title
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+
+		// .......... Favicons .......... 
+		link(rel="apple-touch-icon" sizes="180x180" href=path+"img/favicons/apple-touch-icon.png")
+		link(rel="icon" type="image/png" sizes="32x32" href=path+"img/favicons/favicon-32x32.png")
+		link(rel="icon" type="image/png" sizes="16x16" href=path+"img/favicons/favicon-16x16.png")
+		link(rel="manifest" href=path+"img/favicons/site.webmanifest")
+		link(rel="mask-icon" href=path+"img/favicons/safari-pinned-tab.svg" color="#5bbad5")
+		link(rel="shortcut icon" href=path+"img/favicons/favicon.ico")
+		meta(name="msapplication-TileColor" content="#ffffff")
+		meta(name="msapplication-config" content=path+"img/favicons/browserconfig.xml")
+		meta(name="theme-color" content="#ffffff")
+		// .......... End Favicons .......... 
+
+		// .......... Styles .......... 
+		style.
+			.preloader {
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100vw;
+				height: 100vh;
+				z-index: 9999;
+				background: white url(img/loader.svg) center no-repeat;
+				background-size: 80px auto;
+			}
+		// inject:css 
+		// endinject 
+		link(rel="stylesheet" href=path+"css/styles.css")
+		// .......... End Styles .......... 
+	body
+		div#site_preloader.preloader
+
+		header.panel.screen
+			.screen__inner.panel__inner
+				.logo__box
+					.logo
+						img(src="img/logo.svg" alt="Mediascope Clients Conference 2020")
+					h1.heading
+						| Mediascope Clients
+						br
+						| Conference 
+						span.ff--mono.color--yellow 2020
+				button.menu__toggle.js-menu-toggle
+					span
+					span
+					span
+
+		nav.menu
+			ul.menu__list
+				li.menu__item
+					a(href="//mediascope.net" target="_black")=ms_nav_item1
+				li.menu__item
+					a(href="#speakers")=ms_nav_item2
+				li.menu__item
+					a(href="#program")=ms_nav_item3
+				// li.menu__item
+					a(href=ms_nav_item4_url)=ms_nav_item4
+
+		.screen.intro
+			.screen__inner
+				.intro__grid
+					div
+						h2.title
+							span.color--teal Data. 
+							span.color--yellow We take it 
+							| personally
+						p.hashtag #Mediascopeсonf
+					div
+						.datebox
+							.datebox__inner 01/12
+							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
+								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fff")
+				.btn__box
+					a.btn.btn--fill(href="//mediascopeconference.timepad.ru/event/1477146/" target="_blank")=ms_btn_join
+					br
+					a.btn(href="#about-broadcast")=ms_btn_manual
+
+		.screen.about
+			.screen__inner
+				h2.title.title--lg=ms_about_title
+				p !{ms_about_text}
+				#about-broadcast
+					.broadcast__about
+						h3.title=ms_btn_manual
+						p.broadcast__info=broadcast_info
+						.btn__box
+							a.btn.btn--gray(href="/")=broadcast_site
+							br
+							a.btn.btn--gray(href="https://business.facebook.com/events/811737422923199/" target="_blank")=broadcast_fb
+
+		// .screen.broadcast
+			.screen__inner
+				h2.title.title--lg=broadcast_title
+				.broadcast__box
+					.broadcast__player
+						.broadcast__info=broadcast_player_info
+						.broadcast__video
+							video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="broadcast-video" preload="none" poster="img/posters/broadcast.jpg" playsinline data-setup='{"fluid": true}' controls)
+								source(src="https://www.youtube.com/watch?v=xSo7WElQfWs" type="video/youtube")
+						.broadcast__select 
+							select
+								option(value="0")=broadcast_player_select0
+								option(value="1")=broadcast_player_select1
+								option(value="2")=broadcast_player_select2
+							.select__arrow
+					.broadcast__panel
+						p.broadcast__label Вы смотрите:
+						p.broadcast__caption Название выступления спикера
+						p.broadcast__label Далее в трансляции:
+						p.broadcast__time 10:15
+						p.broadcast__next Название следующего выступления
+						p.broadcast__time 12:30
+						p.broadcast__next Где мы сегодня и что будет завтра?
+						a.btn.btn--gray(href="#speakers") Спикеры
+						a.btn.btn--gray(href="#program") Программа
+
+		.screen.program#program
+			.screen__inner
+				h2.title.title--lg Программа
+				.program__table
+					.program__time 
+						| 11:00 /
+						br
+						| 12:30
+					.program__row
+						.program__speech
+							svg(version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
+								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#00a696")
+							p 
+								span.program__name !{r_tagiev},
+								br
+								span.program__small !{r_tagiev_vocation}
+						.program__speech
+							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
+								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fce800")
+							p 
+								span.program__name !{k_achkasova},
+								br
+								span.program__small !{k_achkasova_vocation}
+						.program__speech
+							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
+								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fce800")
+							p 
+								span.program__name !{m_zotov},
+								br
+								span.program__small !{m_zotov_vocation}
+						.program__speech
+							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
+								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fce800")
+							p 
+								span.program__name !{m_pikuleva},
+								br
+								span.program__small !{m_pikuleva_vocation}
+						.program__speech
+							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
+								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fce800")
+							p 
+								span.program__name !{l_gleizer},
+								br
+								span.program__small !{l_gleizer_vocation}
+
+		.screen.speakers#speakers
+			.screen__inner
+				h2.title.title--lg=ms_nav_item2
+				.speakers__table
+					.speakers__row
+						.speakers__card
+							.speakers__photo
+								img(src="img/speakers/r_tagiev.png" alt="")
+							.speakers__data
+								.speakers__name !{r_tagiev}
+								.speakers__vocation !{r_tagiev_vocation}
+						.speakers__card
+							.speakers__photo
+								img(src="img/speakers/k_achkasova.png" alt="")
+							.speakers__data
+								.speakers__name !{k_achkasova}
+								.speakers__vocation !{k_achkasova_vocation}
+						.speakers__card
+							.speakers__photo
+								img(src="img/speakers/m_pikuleva.png" alt="")
+							.speakers__data
+								.speakers__name !{m_pikuleva}
+								.speakers__vocation !{m_pikuleva_vocation}
+					.speakers__row
+						.speakers__card
+							.speakers__photo
+								img(src="img/speakers/o_starostina.png" alt="")
+							.speakers__data
+								.speakers__name !{o_starostina}
+								.speakers__vocation !{o_starostina_vocation}
+						.speakers__card
+							.speakers__photo
+								img(src="img/speakers/l_gleizer.png" alt="")
+							.speakers__data
+								.speakers__name !{l_gleizer}
+								.speakers__vocation !{l_gleizer_vocation}
+						.speakers__card
+							.speakers__photo
+								img(src="img/speakers/m_zotov.png" alt="")
+							.speakers__data
+								.speakers__name !{m_zotov}
+								.speakers__vocation !{m_zotov_vocation}
+		// .screen.materials
+			.screen__inner
+				h2.title.title--lg
+					| Материалы
+					br
+					| конференции
+				.materials__table
+					- for (var i = 0; i < 3; i++)
+						.materials__card
+							div
+								.materials__player
+									video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="materials-video-"+i preload="none" poster="img/posters/broadcast.jpg" playsinline data-setup='{"fluid": true}' controls)
+										source(src="https://www.youtube.com/watch?v=xSo7WElQfWs" type="video/youtube")
+								.materials__download
+									a(href="#") Скачать презентацию в PDF
+									a.materials__icon(href="#")
+										img(src="img/download.svg" alt="")
+							div
+								h3.materials__title 25 лет: из прошлого в будущее
+								.materials__speaker Ксения Ачкасова
+								.materials__vocation Исполнительный директор
+		// .screen.publications
+			.screen__inner
+				h2.title.title--lg Публикация
+				.publications__table.materials__table
+					.materials__card
+						div
+							.materials__image
+								img(src="img/posters/broadcast.jpg" alt="")
+						div
+							h3.materials__title Интересный заголовок в две строчки
+							.materials__vocation Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+		.screen.footer
+			.screen__inner
+				.footer__row
+					div
+						img.footer__logo(src="img/logo.svg" alt="")
+					div
+						ul.menu__list
+							li.menu__item
+								a(href="//mediascope.net" target="_black") О Mediascope
+							li.menu__item
+								a(href="#speakers") Спикеры
+							li.menu__item
+								a(href="#program") Программа
+						.footer__contacts
+							p.color--teal=footer_contacts
+							p
+								a(href="tel:+74959358718") +7 (495) 935 87 18
+								br
+								a(href="mailto:CONF2020@MEDIASCOPE.NET") CONF2020@MEDIASCOPE.NET
+								br
+								a.footer__facebook(href="//www.facebook.com/MediascopeRu" target="_blank") 
+									img(src="img/fb.svg" alt="")
+									span=footer_facebook
+						p.footer__url conf.mediascope.net
+
+		// .......... Scripts .......... 
+
+		// inject:js 
+		// endinject 
+		script.
+			//.......................
+			//...... Preloader ......
+			//.......................
+			function hidePreloader(){
+				$(function() {
+					$('.preloader').fadeOut(500).delay(500, function(){
+						$(this).css('display', 'none').dequeue();
+					});
+				});
+			}
+			window.onload = hidePreloader();
+		script(src=path+"js/scripts.js")
+		// .......... End Scripts .......... 

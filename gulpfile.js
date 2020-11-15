@@ -41,10 +41,6 @@ const gulp = require('gulp'),
 			file: 'normalize.css',
 			path: dir.src.libraries+'normalize/'
 		},
-		// 'swiper' : {
-		// 	file: 'swiper-bundle.min.css',
-		// 	path: dir.src.libraries+'swiper/'
-		// },
 		'videojs' : {
 			file: 'video-js.css',
 			path: dir.src.libraries+'videojs/'
@@ -55,14 +51,6 @@ const gulp = require('gulp'),
 			file: 'jquery.min.js',
 			path: dir.src.bower+'jquery/dist/'
 		},
-		// 'swiper' : {
-		// 	file: 'swiper-bundle.min.js',
-		// 	path: dir.src.libraries+'swiper/'
-		// },
-		// 'anime' : {
-		// 	file: 'anime.min.js',
-		// 	path: dir.src.bower+'animejs/lib/'
-		// },
 		'videojs' : {
 			file: 'video.js',
 			path: dir.src.libraries+'videojs/'
@@ -71,10 +59,6 @@ const gulp = require('gulp'),
 			file: 'youtube.min.js',
 			path: dir.src.libraries+'videojs/'
 		},
-		// 'typographer' : {
-		// 	file: 'jquery.typographer.min.js',
-		// 	path: dir.src.bower+'typographer/dist/'
-		// }
 	};
 
 //----- FTP upld start
@@ -213,19 +197,20 @@ function html(){
 
 	return src([
 			dir.src.pug, 
-			// '!src/pug/layout.pug'
+			'!src/pug/layout.pug'
 		])//, { since: gulp.lastRun( 'htmlDist' ) })
 		.pipe(pug({
 			doctype: 'html'
 		})).on('error', log)
 		.pipe(inject(srcDist, optionsDist))
-		// .pipe(htmlbeautify(htmlbeautifyOptions))
+		// .pipe((file.path == en/index.pug) ? replace("-->", "-->\n")) // use extra lines after comment tags
+		.pipe(htmlbeautify(htmlbeautifyOptions))
 		// .pipe(replace("-->", "-->\n")) // use extra lines after comment tags
 		// .pipe(replace("\n\n", "\n")) // remove excess extra lines
-		.pipe(htmlmin({
-			collapseWhitespace: 1,
-			removeComments: 1
-		}))
+		// .pipe(htmlmin({
+		// 	collapseWhitespace: 1,
+		// 	removeComments: 1
+		// }))
 		.pipe(dest(dir.dist.root));
 }
 
