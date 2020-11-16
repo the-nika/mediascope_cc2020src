@@ -251,6 +251,19 @@ p{
 			line-height: fz_lg(26.6px);
 		}
 	}
+	.lang__switcher{
+		position: absolute;
+		right: size_sm(60px);
+		top: size_sm(14px);
+		a{
+			color: white;
+			text-decoration: none;
+		}
+		@media ($is_landscape) {
+			position: static;
+			margin-right: size_lg(60px);
+		}
+	}
 
 .intro{
 	padding-top: size_sm(76px - 40px);
@@ -341,7 +354,8 @@ p{
 	&__panel{
 		font-size: fz_sm(16px);
 	}
-	&__info{
+	&__info,
+	&__description{
 		line-height: 140%;
 	}
 	&__caption{
@@ -351,7 +365,7 @@ p{
 		margin-bottom: size_sm(16px);
 	}
 	&__video{
-		margin: size_sm(24px) auto size_sm(16px);
+		margin: 0 auto size_sm(16px);
 	}
 	&__select{
 	    position: relative;
@@ -415,6 +429,17 @@ p{
 	.btn{
 		display: block;
 		margin-top: size_sm(16px);
+		&:first-of-type{
+			margin-top: 0;
+		}
+		&:last-of-type{
+			margin-top: size_sm(50px);
+		}
+	}
+	@media ($is_portrait) {
+		&__player{
+			margin-bottom: size_sm(16px);
+		}
 	}
 	@media ($is_landscape) {
 		position: relative;
@@ -481,16 +506,16 @@ p{
 			}
 		}
 		&__panel{
-			margin-left: size_lg(802px - 738px);
+			margin-left: size_lg(50px);
 			width: size_lg(230px);
 		}
 		&__player{
-			max-width: size_lg(738px - 96px);
+			width: size_lg(738px - 96px);
 			padding-right: size_lg(738px - 706px);
 			box-sizing: border-box;
 		}
 		&__video{
-			margin: size_lg(73px - 54px) 0;
+			margin: 0;// 0 size_lg(73px - 54px);
 		}
 		&__select{
 			max-width: size_lg(150px);
@@ -533,7 +558,12 @@ p{
 		.btn{
 			margin-top: size_lg(12px);
 			&:first-of-type{
-				margin-top: size_lg(60px);
+				margin-top: 0;
+				// margin-bottom: size_lg(50px);
+				// margin-top: size_lg(60px);
+			}
+			&:last-of-type{
+				margin-top: size_lg(50px);
 			}
 		}
 	}
@@ -1029,6 +1059,9 @@ p{
 		justify-content: center;
 		align-items: center;
 		line-height: 1;
+		span{
+			text-align: left;
+		}
 		img{
 			width: size_sm(40px);
 			height: size_sm(40px);

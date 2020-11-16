@@ -1,7 +1,8 @@
 doctype html
-html(lang=lang)
 
-	block vars
+block vars
+
+html(lang=ms_lang)
 
 	head
 		meta(charset="utf-8")
@@ -48,6 +49,8 @@ html(lang=lang)
 						br
 						| Conference 
 						span.ff--mono.color--yellow 2020
+				.lang__switcher
+					a(href=ms_nav_item4_url) #{ms_nav_item4}
 				button.menu__toggle.js-menu-toggle
 					span
 					span
@@ -62,7 +65,7 @@ html(lang=lang)
 				li.menu__item
 					a(href="#program")=ms_nav_item3
 				li.menu__item
-					a(href=ms_nav_item4_url)=ms_nav_item4
+					a(href="//conf.mediascope.net/archive/")=ms_nav_item5
 
 		.screen.intro
 			.screen__inner
@@ -78,40 +81,47 @@ html(lang=lang)
 							.datebox__inner 01/12
 							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
 								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fff")
-				.btn__box
-					a.btn.btn--fill(href="//mediascopeconference.timepad.ru/event/1477146/" target="_blank")=ms_btn_join
-					br
-					a.btn(href="#about-broadcast")=ms_btn_manual
-
+				if (ms_lang === "ru")
+					.btn__box
+						a.btn.btn--fill(href="//mediascopeconference.timepad.ru/event/1477146/" target="_blank")=ms_btn_join
+						br
+						a.btn(href="#about-broadcast")=ms_btn_manual
+		
 		.screen.about
 			.screen__inner
 				h2.title.title--lg=ms_about_title
 				p !{ms_about_text}
-				#about-broadcast
-					.broadcast__about
-						h3.title=ms_btn_manual
-						p.broadcast__info=broadcast_info
-						.btn__box
-							a.btn.btn--gray(href="/")=broadcast_site
-							br
-							a.btn.btn--gray(href="https://business.facebook.com/events/811737422923199/" target="_blank") Facebook
+					if (ms_lang === "ru")
+						#about-broadcast
+							.broadcast__about
+								h3.title=ms_btn_manual
+								p.broadcast__info=broadcast_info
+								.btn__box
+									a.btn.btn--gray(href="/")=broadcast_site
+									br
+									a.btn.btn--gray(href="https://business.facebook.com/events/811737422923199/" target="_blank") Facebook
 
 		// .screen.broadcast
 			.screen__inner
 				h2.title.title--lg=broadcast_title
 				.broadcast__box
 					.broadcast__player
-						.broadcast__info=broadcast_player_info
 						.broadcast__video
-							video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="broadcast-video" preload="none" poster="img/posters/broadcast.jpg" playsinline data-setup='{"fluid": true}' controls)
+							// poster=path+"img/posters/broadcast.jpg"
+							video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="broadcast-video" preload="none" playsinline data-setup='{"fluid": true}' controls)
 								source(src="https://www.youtube.com/watch?v=xSo7WElQfWs" type="video/youtube")
-						.broadcast__select 
+						// .broadcast__select 
 							select
 								option(value="0")=broadcast_player_select0
 								option(value="1")=broadcast_player_select1
 								option(value="2")=broadcast_player_select2
 							.select__arrow
+
 					.broadcast__panel
+						a.btn.btn--gray(href="#speakers")=ms_nav_item2
+						a.btn.btn--gray(href="#program")=ms_nav_item3
+						a.btn.btn--fill(href=broadcast_review_url target="_blank")=broadcast_review
+					// .broadcast__panel
 						p.broadcast__label Вы смотрите:
 						p.broadcast__caption Название выступления спикера
 						p.broadcast__label Далее в трансляции:
@@ -129,7 +139,7 @@ html(lang=lang)
 					.program__time 
 						| 11:00 /
 						br
-						| 12:30
+						| 13:00
 					.program__row
 						.program__speech
 							svg(version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
@@ -163,6 +173,13 @@ html(lang=lang)
 							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
 								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fce800")
 							p 
+								span.program__name !{o_starostina},
+								br
+								span.program__small !{o_starostina_vocation}
+						.program__speech
+							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
+								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fce800")
+							p 
 								span.program__name !{l_gleizer},
 								br
 								span.program__small !{l_gleizer_vocation}
@@ -186,23 +203,23 @@ html(lang=lang)
 								.speakers__vocation !{k_achkasova_vocation}
 						.speakers__card
 							.speakers__photo
+								img(src=path+"img/speakers/l_gleizer.png" alt="")
+							.speakers__data
+								.speakers__name !{l_gleizer}
+								.speakers__vocation !{l_gleizer_vocation}
+					.speakers__row
+						.speakers__card
+							.speakers__photo
 								img(src=path+"img/speakers/m_pikuleva.png" alt="")
 							.speakers__data
 								.speakers__name !{m_pikuleva}
 								.speakers__vocation !{m_pikuleva_vocation}
-					.speakers__row
 						.speakers__card
 							.speakers__photo
 								img(src=path+"img/speakers/o_starostina.png" alt="")
 							.speakers__data
 								.speakers__name !{o_starostina}
 								.speakers__vocation !{o_starostina_vocation}
-						.speakers__card
-							.speakers__photo
-								img(src=path+"img/speakers/l_gleizer.png" alt="")
-							.speakers__data
-								.speakers__name !{l_gleizer}
-								.speakers__vocation !{l_gleizer_vocation}
 						.speakers__card
 							.speakers__photo
 								img(src=path+"img/speakers/m_zotov.png" alt="")
@@ -255,11 +272,14 @@ html(lang=lang)
 							li.menu__item
 								a(href="#program")=ms_nav_item3
 							li.menu__item
+								a(href="//conf.mediascope.net/archive/" target="_blank")=ms_nav_item5
+							li.menu__item
 								a(href=ms_nav_item4_url)=ms_nav_item4
 						.footer__contacts
-							p.color--teal=footer_contacts
+							p.color--teal !{footer_contacts}
 							p
-								a(href="tel:+74959358718") +7 (495) 935 87 18
+								a(href="tel:+74959358718") 
+									nobr +7 (495) 935 87 18
 								br
 								a(href="mailto:CONF2020@MEDIASCOPE.NET") CONF2020@MEDIASCOPE.NET
 								br
