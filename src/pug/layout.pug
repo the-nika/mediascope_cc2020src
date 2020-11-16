@@ -29,11 +29,10 @@ html(lang=lang)
 				width: 100vw;
 				height: 100vh;
 				z-index: 9999;
-				background: white url(img/loader.svg) center no-repeat;
+				background: white url(#{path}img/loader.svg) center no-repeat;
 				background-size: 80px auto;
 			}
-		// inject:css 
-		// endinject 
+		link(rel="stylesheet" href=path+"css/libs.min.css")
 		link(rel="stylesheet" href=path+"css/styles.css")
 		// .......... End Styles .......... 
 	body
@@ -43,7 +42,7 @@ html(lang=lang)
 			.screen__inner.panel__inner
 				.logo__box
 					.logo
-						img(src="img/logo.svg" alt="Mediascope Clients Conference 2020")
+						img(src=path+"img/logo.svg" alt="Mediascope Clients Conference 2020")
 					h1.heading
 						| Mediascope Clients
 						br
@@ -62,7 +61,7 @@ html(lang=lang)
 					a(href="#speakers")=ms_nav_item2
 				li.menu__item
 					a(href="#program")=ms_nav_item3
-				// li.menu__item
+				li.menu__item
 					a(href=ms_nav_item4_url)=ms_nav_item4
 
 		.screen.intro
@@ -95,7 +94,7 @@ html(lang=lang)
 						.btn__box
 							a.btn.btn--gray(href="/")=broadcast_site
 							br
-							a.btn.btn--gray(href="https://business.facebook.com/events/811737422923199/" target="_blank")=broadcast_fb
+							a.btn.btn--gray(href="https://business.facebook.com/events/811737422923199/" target="_blank") Facebook
 
 		// .screen.broadcast
 			.screen__inner
@@ -125,7 +124,7 @@ html(lang=lang)
 
 		.screen.program#program
 			.screen__inner
-				h2.title.title--lg Программа
+				h2.title.title--lg=ms_nav_item3
 				.program__table
 					.program__time 
 						| 11:00 /
@@ -175,38 +174,38 @@ html(lang=lang)
 					.speakers__row
 						.speakers__card
 							.speakers__photo
-								img(src="img/speakers/r_tagiev.png" alt="")
+								img(src=path+"img/speakers/r_tagiev.png" alt="")
 							.speakers__data
 								.speakers__name !{r_tagiev}
 								.speakers__vocation !{r_tagiev_vocation}
 						.speakers__card
 							.speakers__photo
-								img(src="img/speakers/k_achkasova.png" alt="")
+								img(src=path+"img/speakers/k_achkasova.png" alt="")
 							.speakers__data
 								.speakers__name !{k_achkasova}
 								.speakers__vocation !{k_achkasova_vocation}
 						.speakers__card
 							.speakers__photo
-								img(src="img/speakers/m_pikuleva.png" alt="")
+								img(src=path+"img/speakers/m_pikuleva.png" alt="")
 							.speakers__data
 								.speakers__name !{m_pikuleva}
 								.speakers__vocation !{m_pikuleva_vocation}
 					.speakers__row
 						.speakers__card
 							.speakers__photo
-								img(src="img/speakers/o_starostina.png" alt="")
+								img(src=path+"img/speakers/o_starostina.png" alt="")
 							.speakers__data
 								.speakers__name !{o_starostina}
 								.speakers__vocation !{o_starostina_vocation}
 						.speakers__card
 							.speakers__photo
-								img(src="img/speakers/l_gleizer.png" alt="")
+								img(src=path+"img/speakers/l_gleizer.png" alt="")
 							.speakers__data
 								.speakers__name !{l_gleizer}
 								.speakers__vocation !{l_gleizer_vocation}
 						.speakers__card
 							.speakers__photo
-								img(src="img/speakers/m_zotov.png" alt="")
+								img(src=path+"img/speakers/m_zotov.png" alt="")
 							.speakers__data
 								.speakers__name !{m_zotov}
 								.speakers__vocation !{m_zotov_vocation}
@@ -226,7 +225,7 @@ html(lang=lang)
 								.materials__download
 									a(href="#") Скачать презентацию в PDF
 									a.materials__icon(href="#")
-										img(src="img/download.svg" alt="")
+										img(src=path+"img/download.svg" alt="")
 							div
 								h3.materials__title 25 лет: из прошлого в будущее
 								.materials__speaker Ксения Ачкасова
@@ -238,7 +237,7 @@ html(lang=lang)
 					.materials__card
 						div
 							.materials__image
-								img(src="img/posters/broadcast.jpg" alt="")
+								img(src=path+"img/posters/broadcast.jpg" alt="")
 						div
 							h3.materials__title Интересный заголовок в две строчки
 							.materials__vocation Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
@@ -246,15 +245,17 @@ html(lang=lang)
 			.screen__inner
 				.footer__row
 					div
-						img.footer__logo(src="img/logo.svg" alt="")
+						img.footer__logo(src=path+"img/logo.svg" alt="")
 					div
 						ul.menu__list
 							li.menu__item
-								a(href="//mediascope.net" target="_black") О Mediascope
+								a(href="//mediascope.net" target="_black")=ms_nav_item1
 							li.menu__item
-								a(href="#speakers") Спикеры
+								a(href="#speakers")=ms_nav_item2
 							li.menu__item
-								a(href="#program") Программа
+								a(href="#program")=ms_nav_item3
+							li.menu__item
+								a(href=ms_nav_item4_url)=ms_nav_item4
 						.footer__contacts
 							p.color--teal=footer_contacts
 							p
@@ -263,14 +264,14 @@ html(lang=lang)
 								a(href="mailto:CONF2020@MEDIASCOPE.NET") CONF2020@MEDIASCOPE.NET
 								br
 								a.footer__facebook(href="//www.facebook.com/MediascopeRu" target="_blank") 
-									img(src="img/fb.svg" alt="")
+									img(src=path+"img/fb.svg" alt="")
 									span=footer_facebook
 						p.footer__url conf.mediascope.net
 
 		// .......... Scripts .......... 
 
-		// inject:js 
-		// endinject 
+		
+		script(src=path+"js/libs.min.js")
 		script.
 			//.......................
 			//...... Preloader ......

@@ -941,11 +941,11 @@ p{
 	}
 	@media ($is_landscape) {
 		&__toggle{
-			position: fixed;//relative;
+			position: fixed;
 			margin: 0;
 			flex: 0 0 auto;
 			top: auto;
-			right: size_lg(64px);//0;
+			right: size_lg(64px);
 			width: size_lg(28px);
 			height: size_lg(21px);
 			span {
@@ -959,9 +959,14 @@ p{
 			.menu{
 				padding-top: size_lg(180px);
 				padding-right: size_lg(64px);
+				&__list{
+					display: flex;
+					flex-wrap: wrap;
+				}
 				&__item{
-					font-size: fz_lg(64px);
-					margin-bottom: size_lg(48px);
+					flex: 1 0 50%;
+					font-size: fz_lg(44px);
+					margin: size_lg(24px) 0;
 				}
 				&__toggle{
 					span{
@@ -980,7 +985,7 @@ p{
 		&__open{
 			.menu{
 				&__item{
-					margin-bottom: size_lg(18px);
+					margin: size_lg(14px) 0;
 				}
 			}
 		}
