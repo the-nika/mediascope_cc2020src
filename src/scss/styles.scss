@@ -270,7 +270,7 @@ p{
 	.title{
 		font-size: fz_sm(34px);
 		line-height: fz_sm(40.8px);
-		margin-bottom: 0;
+		margin-bottom: size_sm(10px);
 	}
 	.btn{
 		border-radius: size_sm(3px);
@@ -280,7 +280,7 @@ p{
 		.title{
 			font-size: fz_lg(58px);
 			line-height: fz_lg(60.8px);
-			margin-bottom: fz_lg(12px);
+			margin-bottom: fz_lg(20px);
 		}
 		.btn{
 			border-radius: size_lg(3px);
@@ -576,6 +576,8 @@ p{
 	font-size: fz_sm(24px);
 	line-height: fz_sm(33.6px);
 	&__row{
+		padding: size_sm(32px) 0;
+		border-bottom: size_sm(1px) solid $gray;
 		p{
 			margin-bottom: fz_sm(19px);
 			&:last-child{
@@ -587,42 +589,25 @@ p{
 		}
 	}
 	&__speech{
-		position: relative;
-		padding: 0;
-		padding-left: size_sm(18px) size_sm(18px) size_sm(18px) size_sm(50px);
-		svg{
-			display: none;
-			path{
-				stroke-width: size_sm(3px);
-			}
+		p{
+			line-height: 120%;
 		}
 		.program__small{
-			display: block;
+			font-size: fz_sm(19px);
 			line-height: 140%;
-			font-size: fz_sm(14px);
-			margin-top: size_sm(7px);
-			color: $teal;
-		}
-		.program__name{
-			background-color: $semidark;
-			position: relative;
-		}
-		.program__small,
-		.program__name{
 			br{
 				display: none;
 			}
 		}
-		p{
-			line-height: 120%;
-			margin-top: size_sm(27px);
+		.program__vocation{
+			display: block;
+			color: $teal;
 		}
 	}
 	&__time{
 		font-family: $ff_mono;
-		color: $yellow;
+		color: $teal;
 		margin-bottom: size_sm(24px);
-		padding: size_sm(32px) 0;
 	}
 	@media ($is_landscape) {
 		background-image: url(../img/bg_program.svg);
@@ -631,49 +616,27 @@ p{
 		font-size: fz_lg(32px);
 		line-height: fz_lg(40.8px);
 		&__table{
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
 			max-width: 75%;
 			margin-left: auto;
 			margin-right: auto;
 		}
 		&__row{
 			display: flex;
-			flex-direction: column;
-			justify-content: flex-start;
-			flex-grow: 1;
+			justify-content: flex-start;//space-between;
+			padding: size_lg(909px - 866px) 0;
+			border-width: size_lg(1px);
 			p{
 				margin-bottom: fz_lg(19px);
 			}
 		}
-		&__speech{
-			flex: 1 0 auto;
-			padding: size_lg(18px) size_lg(18px) size_lg(18px) size_lg(50px);
-			svg{
-				display: block;
-				position: absolute;
-				top: size_lg(22px);
-				left: 0;
-				width: size_lg(80px);
-				path{
-					stroke-width: size_lg(3px);
-				}
-			}	
-			.program__small{
-				font-size: fz_lg(14px);
-				margin-top: size_lg(7px);
-				margin-left: size_lg(46px);
-				color: white;
-			}
-			p{
-				margin-top: size_lg(27px);
-			}
-		}
 		&__time{
-			flex: 0 0 size_lg(300px - 64px);
+			flex: 0 0 size_lg(370px - 64px);
 			margin-bottom: 0;
-			padding: size_lg(909px - 866px) 0;
+		}
+		&__speech{
+			.program__small{
+				font-size: fz_lg(19px);
+			}
 		}
 	}
 }
@@ -939,7 +902,8 @@ p{
 			z-index: 100;
 			&__item{
 				text-align: right;
-				font-size: fz_sm(32px);
+				font-size: fz_sm(28px);
+				margin-bottom: size_sm(32px);
 			}
 			a{
 				transition: color .3s ease-in-out;

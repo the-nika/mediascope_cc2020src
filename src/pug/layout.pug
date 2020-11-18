@@ -59,13 +59,20 @@ html(lang=ms_lang)
 		nav.menu
 			ul.menu__list
 				li.menu__item
-					a(href="//mediascope.net" target="_black")=ms_nav_item1
+					if (ms_lang === "ru")
+						a(href="//mediascope.net" target="_black")=ms_nav_item1
+					else
+						a(href="//mediascope.net/en/" target="_black")=ms_nav_item1
 				li.menu__item
 					a(href="#speakers")=ms_nav_item2
 				li.menu__item
 					a(href="#program")=ms_nav_item3
 				li.menu__item
 					a(href="//conf.mediascope.net/archive/")=ms_nav_item5
+				li.menu__item
+					a(href=ms_nav_item4_url) #{ms_nav_item4}
+				li.menu__item
+					a(href=ms_btn_join_url target="_blank")=ms_btn_join
 
 		.screen.intro
 			.screen__inner
@@ -83,24 +90,26 @@ html(lang=ms_lang)
 								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fff")
 				
 				.btn__box
-					a.btn.btn--fill(href="//mediascopeconference.timepad.ru/event/1477146/" target="_blank")=ms_btn_join
-					if (ms_lang === "ru")
-						br
-						a.btn(href="#about-broadcast")=ms_btn_manual
+					a.btn.btn--fill(href=ms_btn_join_url target="_blank")=ms_btn_join
+					br
+					a.btn(href="#about-broadcast")=ms_btn_manual
 		
 		.screen.about
 			.screen__inner
 				h2.title.title--lg=ms_about_title
 				p !{ms_about_text}
-					if (ms_lang === "ru")
-						#about-broadcast
-							.broadcast__about
-								h3.title=ms_btn_manual
-								p.broadcast__info=broadcast_info
-								.btn__box
-									a.btn.btn--gray(href="/")=broadcast_site
-									br
-									a.btn.btn--gray(href="https://business.facebook.com/events/811737422923199/" target="_blank") Facebook
+				#about-broadcast
+					.broadcast__about
+						h3.title=ms_btn_manual
+						p.broadcast__info=broadcast_info
+						.btn__box
+							if (ms_lang === "ru")
+								a.btn.btn--gray(href="/")=broadcast_site
+								br
+								a.btn.btn--gray(href="//www.facebook.com/events/811737422923199/" target="_blank") Facebook
+							else
+								a.btn.btn--gray(href="/en/")=broadcast_site
+
 
 		// .screen.broadcast
 			.screen__inner
@@ -108,82 +117,60 @@ html(lang=ms_lang)
 				.broadcast__box
 					.broadcast__player
 						.broadcast__video
-							// poster=path+"img/posters/broadcast.jpg"
+							// poster=path+"img/posters/broadcast.jpg" https://www.youtube.com/watch?v=xSo7WElQfWs
 							video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="broadcast-video" preload="none" playsinline data-setup='{"fluid": true}' controls)
-								source(src="https://www.youtube.com/watch?v=xSo7WElQfWs" type="video/youtube")
-						// .broadcast__select 
-							select
-								option(value="0")=broadcast_player_select0
-								option(value="1")=broadcast_player_select1
-								option(value="2")=broadcast_player_select2
-							.select__arrow
-
+								source(src="" type="video/youtube")
 					.broadcast__panel
 						a.btn.btn--gray(href="#speakers")=ms_nav_item2
 						a.btn.btn--gray(href="#program")=ms_nav_item3
 						a.btn.btn--fill(href=broadcast_review_url target="_blank")=broadcast_review
-					// .broadcast__panel
-						p.broadcast__label Вы смотрите:
-						p.broadcast__caption Название выступления спикера
-						p.broadcast__label Далее в трансляции:
-						p.broadcast__time 10:15
-						p.broadcast__next Название следующего выступления
-						p.broadcast__time 12:30
-						p.broadcast__next Где мы сегодня и что будет завтра?
-						a.btn.btn--gray(href="#speakers") Спикеры
-						a.btn.btn--gray(href="#program") Программа
 
 		.screen.program#program
 			.screen__inner
 				h2.title.title--lg=ms_nav_item3
 				.program__table
-					.program__time 
-						| 11:00 /
-						br
-						| 13:00
 					.program__row
+						.program__time 11:00 - 11:10
 						.program__speech
-							svg(version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
-								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#00a696")
-							p 
-								span.program__name !{r_tagiev},
-								br
-								span.program__small !{r_tagiev_vocation}
+							p !{r_tagiev_speech}
+							p.program__small
+								| !{r_tagiev},
+								span.program__vocation !{r_tagiev_vocation}
+					.program__row
+						.program__time 11:10 - 11:40
 						.program__speech
-							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
-								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fce800")
-							p 
-								span.program__name !{k_achkasova},
-								br
-								span.program__small !{k_achkasova_vocation}
+							p !{k_achkasova_speech}
+							p.program__small !{k_achkasova_details}
+							p.program__small
+								| !{k_achkasova},
+								span.program__vocation !{k_achkasova_vocation}
+					.program__row
+						.program__time 11:40 - 12:00
 						.program__speech
-							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
-								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fce800")
-							p 
-								span.program__name !{m_zotov},
-								br
-								span.program__small !{m_zotov_vocation}
+							p !{m_zotov_speech}
+							p.program__small !{m_zotov_details}
+							p.program__small
+								| !{m_zotov},
+								span.program__vocation !{m_zotov_vocation}
+					.program__row
+						.program__time 12:00 - 12:40
 						.program__speech
-							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
-								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fce800")
-							p 
-								span.program__name !{m_pikuleva},
-								br
-								span.program__small !{m_pikuleva_vocation}
+							p !{m_pikuleva_speech}
+							p.program__small !{m_pikuleva_details}
+							p.program__small
+								| !{m_pikuleva},
+								span.program__vocation !{m_pikuleva_vocation}
+							p.program__small
+								| !{o_starostina},
+								span.program__vocation !{o_starostina_vocation}
+					.program__row
+						.program__time 12:40 - 13:00
 						.program__speech
-							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
-								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fce800")
-							p 
-								span.program__name !{o_starostina},
-								br
-								span.program__small !{o_starostina_vocation}
-						.program__speech
-							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
-								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fce800")
-							p 
-								span.program__name !{l_gleizer},
-								br
-								span.program__small !{l_gleizer_vocation}
+							p !{l_gleizer_speech}
+							p.program__small !{l_gleizer_details}
+							p.program__small
+								| !{l_gleizer},
+								span.program__vocation !{l_gleizer_vocation}
 
 		.screen.speakers#speakers
 			.screen__inner
@@ -267,7 +254,10 @@ html(lang=ms_lang)
 					div
 						ul.menu__list
 							li.menu__item
-								a(href="//mediascope.net" target="_black")=ms_nav_item1
+								if (ms_lang === "ru")
+									a(href="//mediascope.net" target="_black")=ms_nav_item1
+								else
+									a(href="//mediascope.net/en/" target="_black")=ms_nav_item1
 							li.menu__item
 								a(href="#speakers")=ms_nav_item2
 							li.menu__item
