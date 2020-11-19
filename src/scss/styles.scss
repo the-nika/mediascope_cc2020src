@@ -575,6 +575,11 @@ p{
 	background-size: size_sm(70px) auto;
 	font-size: fz_sm(24px);
 	line-height: fz_sm(33.6px);
+	&__notice{
+		font-size: fz_sm(14px);
+		color: $yellow;
+		margin-top: size_sm(14px);
+	}
 	&__row{
 		padding: size_sm(32px) 0;
 		border-bottom: size_sm(1px) solid $gray;
@@ -608,6 +613,12 @@ p{
 		font-family: $ff_mono;
 		color: $teal;
 		margin-bottom: size_sm(24px);
+		sup{
+			top: size_sm(-15px);
+			font-size: fz_sm(18px);
+			margin-left: size_sm(-14px);
+			color: $yellow;
+		}
 	}
 	@media ($is_landscape) {
 		background-image: url(../img/bg_program.svg);
@@ -615,6 +626,10 @@ p{
 		background-size: size_lg(98px) auto;
 		font-size: fz_lg(32px);
 		line-height: fz_lg(40.8px);
+		&__notice{
+			font-size: fz_lg(16px);
+			margin-top: size_lg(16px);
+		}
 		&__table{
 			max-width: 75%;
 			margin-left: auto;
@@ -632,6 +647,11 @@ p{
 		&__time{
 			flex: 0 0 size_lg(370px - 64px);
 			margin-bottom: 0;
+			sup{
+				top: size_lg(-15px);
+				font-size: fz_lg(18px);
+				margin-left: size_lg(-14px);
+			}
 		}
 		&__speech{
 			.program__small{

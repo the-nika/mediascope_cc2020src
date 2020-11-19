@@ -130,14 +130,20 @@ html(lang=ms_lang)
 				h2.title.title--lg=ms_nav_item3
 				.program__table
 					.program__row
-						.program__time 11:00 - 11:10
+						.program__time
+							| 11:00 - 11:10&nbsp;
+							if (ms_lang === "en")
+								sup *
 						.program__speech
 							p !{r_tagiev_speech}
 							p.program__small
 								| !{r_tagiev},
 								span.program__vocation !{r_tagiev_vocation}
 					.program__row
-						.program__time 11:10 - 11:40
+						.program__time
+							| 11:10 - 11:40&nbsp;
+							if (ms_lang === "en")
+								sup *
 						.program__speech
 							p !{k_achkasova_speech}
 							p.program__small !{k_achkasova_details}
@@ -145,7 +151,10 @@ html(lang=ms_lang)
 								| !{k_achkasova},
 								span.program__vocation !{k_achkasova_vocation}
 					.program__row
-						.program__time 11:40 - 12:00
+						.program__time
+							| 11:40 - 12:00&nbsp;
+							if (ms_lang === "en")
+								sup *
 						.program__speech
 							p !{m_zotov_speech}
 							p.program__small !{m_zotov_details}
@@ -153,7 +162,10 @@ html(lang=ms_lang)
 								| !{m_zotov},
 								span.program__vocation !{m_zotov_vocation}
 					.program__row
-						.program__time 12:00 - 12:40
+						.program__time
+							| 12:00 - 12:40&nbsp;
+							if (ms_lang === "en")
+								sup *
 						.program__speech
 							p !{m_pikuleva_speech}
 							p.program__small !{m_pikuleva_details}
@@ -164,13 +176,20 @@ html(lang=ms_lang)
 								| !{o_starostina},
 								span.program__vocation !{o_starostina_vocation}
 					.program__row
-						.program__time 12:40 - 13:00
+						.program__time
+							| 12:40 - 13:00&nbsp;
+							if (ms_lang === "en")
+								sup *
 						.program__speech
 							p !{l_gleizer_speech}
 							p.program__small !{l_gleizer_details}
 							p.program__small
 								| !{l_gleizer},
 								span.program__vocation !{l_gleizer_vocation}
+
+					if (ms_lang === "en")
+						.program__notice * Time zone: Moscow local time
+
 
 		.screen.speakers#speakers
 			.screen__inner
