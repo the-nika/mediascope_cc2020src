@@ -21,8 +21,7 @@ html(lang=ms_lang)
 		meta(name="theme-color" content="#ffffff")
 		// .......... End Favicons .......... 
 
-		meta(property="og:image" content="http://mediascope.nvspace.ru/img/mediascope.png")
-		//-https://conf.mediascope.net/img/logo_mediascope.png")
+		meta(property="og:image" content="https://conf.mediascope.ru/img/mediascope.png")
 
 		// .......... Styles .......... 
 		style.
@@ -74,7 +73,7 @@ html(lang=ms_lang)
 					a(href="//conf.mediascope.net/archive/")=ms_nav_item5
 				li.menu__item
 					a(href=ms_nav_item4_url) #{ms_nav_item4}
-				//- li.menu__item
+				li.menu__item
 					a(href=ms_btn_join_url target="_blank")=ms_btn_join
 
 		.screen.intro
@@ -92,7 +91,7 @@ html(lang=ms_lang)
 							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
 								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fff")
 				
-				//- .btn__box
+				.btn__box
 					a.btn.btn--fill(href=ms_btn_join_url target="_blank")=ms_btn_join
 					br
 					a.btn(href="#about-broadcast")=ms_btn_manual
@@ -159,7 +158,7 @@ html(lang=ms_lang)
 								span.program__vocation !{k_achkasova_vocation}
 					.program__row
 						.program__time
-							| 11:40 - 12:00&nbsp;
+							| 11:40 - 11:55&nbsp;
 							if (ms_lang === "en")
 								sup *
 						.program__speech
@@ -170,7 +169,7 @@ html(lang=ms_lang)
 								span.program__vocation !{m_zotov_vocation}
 					.program__row
 						.program__time
-							| 12:00 - 12:40&nbsp;
+							| 11:55 - 12:20&nbsp;
 							if (ms_lang === "en")
 								sup *
 						.program__speech
@@ -184,7 +183,7 @@ html(lang=ms_lang)
 								span.program__vocation !{o_starostina_vocation}
 					.program__row
 						.program__time
-							| 12:40 - 13:00&nbsp;
+							| 12:20 - 12:40&nbsp;
 							if (ms_lang === "en")
 								sup *
 						.program__speech
