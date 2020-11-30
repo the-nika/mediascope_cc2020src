@@ -21,6 +21,9 @@ html(lang=ms_lang)
 		meta(name="theme-color" content="#ffffff")
 		// .......... End Favicons .......... 
 
+		meta(property="og:image" content="http://mediascope.nvspace.ru/img/mediascope.png")
+		//-https://conf.mediascope.net/img/logo_mediascope.png")
+
 		// .......... Styles .......... 
 		style.
 			.preloader {
@@ -71,7 +74,7 @@ html(lang=ms_lang)
 					a(href="//conf.mediascope.net/archive/")=ms_nav_item5
 				li.menu__item
 					a(href=ms_nav_item4_url) #{ms_nav_item4}
-				li.menu__item
+				//- li.menu__item
 					a(href=ms_btn_join_url target="_blank")=ms_btn_join
 
 		.screen.intro
@@ -89,41 +92,45 @@ html(lang=ms_lang)
 							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
 								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fff")
 				
-				.btn__box
+				//- .btn__box
 					a.btn.btn--fill(href=ms_btn_join_url target="_blank")=ms_btn_join
 					br
 					a.btn(href="#about-broadcast")=ms_btn_manual
-		
-		.screen.about
-			.screen__inner
-				h2.title.title--lg=ms_about_title
-				p !{ms_about_text}
-				#about-broadcast
-					.broadcast__about
-						h3.title=ms_btn_manual
-						p.broadcast__info=broadcast_info
-						.btn__box
-							if (ms_lang === "ru")
-								a.btn.btn--gray(href="/")=broadcast_site
-								br
-								a.btn.btn--gray(href="//www.facebook.com/events/811737422923199/" target="_blank") Facebook
-							else
-								a.btn.btn--gray(href="/en/")=broadcast_site
 
-
-		// .screen.broadcast
+		//- broadcast_video_url !!!!!!!!!!
+		.screen.broadcast#broadcast
 			.screen__inner
 				h2.title.title--lg=broadcast_title
 				.broadcast__box
 					.broadcast__player
 						.broadcast__video
-							// poster=path+"img/posters/broadcast.jpg" https://www.youtube.com/watch?v=xSo7WElQfWs
+							// img.broadcast__poster(src=path+"img/posters/broadcast.jpg" alt="")
+							// poster=path+"img/posters/broadcast.jpg"
 							video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="broadcast-video" preload="none" playsinline data-setup='{"fluid": true}' controls)
-								source(src="" type="video/youtube")
+								source(src=broadcast_video_url type="video/youtube")
 					.broadcast__panel
 						a.btn.btn--gray(href="#speakers")=ms_nav_item2
 						a.btn.btn--gray(href="#program")=ms_nav_item3
+						a.btn.btn--fill.btn--tg(href="//t.me/mediascopeconf" target="_blank")=broadcast_tg
 						a.btn.btn--fill(href=broadcast_review_url target="_blank")=broadcast_review
+		
+		.screen.about
+			.screen__inner
+				// h2.title.title--lg=ms_about_title
+				// p !{ms_about_text}
+				#about-broadcast
+					.broadcast__about
+						h3.title=ms_btn_manual
+						p.broadcast__info !{broadcast_info}
+						.btn__box
+							if (ms_lang === "ru")
+								a.btn.btn--gray(href="#broadcast")=broadcast_site
+								br
+								a.btn.btn--gray(href="//www.facebook.com/events/811737422923199/" target="_blank") Facebook
+							else
+								a.btn.btn--gray(href="/en/")=broadcast_site
+							br
+							a.btn.btn--gray(href=broadcast_youtube_url target="_black") Youtube
 
 		.screen.program#program
 			.screen__inner
