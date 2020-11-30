@@ -768,6 +768,9 @@ p{
 		font-family: $ff_mono;
 		font-size: fz_sm(19px);
 		color: $teal;
+		br{
+			display: none;
+		}
 	}
 	&__vocation{
 		font-size: fz_sm(17px);
@@ -837,16 +840,41 @@ p{
 }
 
 .publications{
+	&__text{
+		display: none;
+		// transition: all .5s ease-in-out;
+		p{
+			line-height: 150%;
+		}
+	}
+	&__table{
+		&--open{
+			.publications{
+				&__card{
+					a{
+						visibility: hidden;
+					}
+				}
+				&__text{
+					display: block;
+				}
+			}
+		}
+	}
 	@media ($is_landscape) {
 		position: relative;
+		&__text{
+			padding: 0 size_lg(80px) size_lg(50px);
+			font-size: fz_lg(24px);
+		}
 		&::before{
 			content: '';
 			position: absolute;
-			top: -25%;
+			top: -100px;//-25%;
 			right: 0;
 			display: block;
-			width: size_lg(464px);
-			height: size_lg(533px);
+			width: size_lg(464px / 2);
+			height: size_lg(533px / 2);
 			background-image: url(../img/bg_publications.svg);
 			background-position: center;
 			background-size: 100% auto;

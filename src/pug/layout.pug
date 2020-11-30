@@ -21,7 +21,8 @@ html(lang=ms_lang)
 		meta(name="theme-color" content="#ffffff")
 		// .......... End Favicons .......... 
 
-		meta(property="og:image" content="https://conf.mediascope.ru/img/mediascope.png")
+		meta(property="og:image" content="http://mediascope.nvspace.ru/img/mediascope.png")
+		//-https://conf.mediascope.net/img/logo_mediascope.png")
 
 		// .......... Styles .......... 
 		style.
@@ -65,15 +66,15 @@ html(lang=ms_lang)
 						a(href="//mediascope.net" target="_black")=ms_nav_item1
 					else
 						a(href="//mediascope.net/en/" target="_black")=ms_nav_item1
-				li.menu__item
-					a(href="#speakers")=ms_nav_item2
-				li.menu__item
-					a(href="#program")=ms_nav_item3
+				//- li.menu__item
+				//- 	a(href="#speakers")=ms_nav_item2
+				//- li.menu__item
+				//- 	a(href="#program")=ms_nav_item3
 				li.menu__item
 					a(href="//conf.mediascope.net/archive/")=ms_nav_item5
 				li.menu__item
 					a(href=ms_nav_item4_url) #{ms_nav_item4}
-				li.menu__item
+				//- li.menu__item
 					a(href=ms_btn_join_url target="_blank")=ms_btn_join
 
 		.screen.intro
@@ -91,13 +92,13 @@ html(lang=ms_lang)
 							svg( version="1.1" viewBox="0 0 238 269" preserveAspectRatio="xMinYMin meet" fill="none")
 								path(d="M236.953 268.422L.502 234.227V34.605L236.953.577v267.845z" stroke="#fff")
 				
-				.btn__box
+				//- .btn__box
 					a.btn.btn--fill(href=ms_btn_join_url target="_blank")=ms_btn_join
 					br
 					a.btn(href="#about-broadcast")=ms_btn_manual
 
 		//- broadcast_video_url !!!!!!!!!!
-		.screen.broadcast#broadcast
+		//- .screen.broadcast#broadcast
 			.screen__inner
 				h2.title.title--lg=broadcast_title
 				.broadcast__box
@@ -110,10 +111,10 @@ html(lang=ms_lang)
 					.broadcast__panel
 						a.btn.btn--gray(href="#speakers")=ms_nav_item2
 						a.btn.btn--gray(href="#program")=ms_nav_item3
-						a.btn.btn--fill.btn--tg(href="//t.me/mediascopeconf" target="_blank")=broadcast_tg
+						a.btn.btn--fill.btn--tg(href="//t.me/mediascope_bot" target="_blank")=broadcast_tg
 						a.btn.btn--fill(href=broadcast_review_url target="_blank")=broadcast_review
 		
-		.screen.about
+		//- .screen.about
 			.screen__inner
 				// h2.title.title--lg=ms_about_title
 				// p !{ms_about_text}
@@ -131,7 +132,7 @@ html(lang=ms_lang)
 							br
 							a.btn.btn--gray(href=broadcast_youtube_url target="_black") Youtube
 
-		.screen.program#program
+		//- .screen.program#program
 			.screen__inner
 				h2.title.title--lg=ms_nav_item3
 				.program__table
@@ -158,7 +159,7 @@ html(lang=ms_lang)
 								span.program__vocation !{k_achkasova_vocation}
 					.program__row
 						.program__time
-							| 11:40 - 11:55&nbsp;
+							| 11:40 - 12:00&nbsp;
 							if (ms_lang === "en")
 								sup *
 						.program__speech
@@ -169,7 +170,7 @@ html(lang=ms_lang)
 								span.program__vocation !{m_zotov_vocation}
 					.program__row
 						.program__time
-							| 11:55 - 12:20&nbsp;
+							| 12:00 - 12:40&nbsp;
 							if (ms_lang === "en")
 								sup *
 						.program__speech
@@ -183,7 +184,7 @@ html(lang=ms_lang)
 								span.program__vocation !{o_starostina_vocation}
 					.program__row
 						.program__time
-							| 12:20 - 12:40&nbsp;
+							| 12:40 - 13:00&nbsp;
 							if (ms_lang === "en")
 								sup *
 						.program__speech
@@ -197,7 +198,7 @@ html(lang=ms_lang)
 						.program__notice * Time zone: Moscow local time
 
 
-		.screen.speakers#speakers
+		//- .screen.speakers#speakers
 			.screen__inner
 				h2.title.title--lg=ms_nav_item2
 				.speakers__table
@@ -239,38 +240,171 @@ html(lang=ms_lang)
 							.speakers__data
 								.speakers__name !{m_zotov}
 								.speakers__vocation !{m_zotov_vocation}
-		// .screen.materials
+		.screen.materials
 			.screen__inner
 				h2.title.title--lg
-					| Материалы
-					br
-					| конференции
+					if (ms_lang === "ru")
+						| Материалы
+						br
+						| конференции
+					else
+						| Conference
+						br
+						| materials
 				.materials__table
-					- for (var i = 0; i < 3; i++)
-						.materials__card
-							div
-								.materials__player
-									video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="materials-video-"+i preload="none" poster="img/posters/broadcast.jpg" playsinline data-setup='{"fluid": true}' controls)
-										source(src="https://www.youtube.com/watch?v=xSo7WElQfWs" type="video/youtube")
-								.materials__download
-									a(href="#") Скачать презентацию в PDF
-									a.materials__icon(href="#")
-										img(src=path+"img/download.svg" alt="")
-							div
-								h3.materials__title 25 лет: из прошлого в будущее
-								.materials__speaker Ксения Ачкасова
-								.materials__vocation Исполнительный директор
-		// .screen.publications
-			.screen__inner
-				h2.title.title--lg Публикация
-				.publications__table.materials__table
 					.materials__card
+						div
+							.materials__player
+								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true}' controls)
+									source(src=broadcast_video_url type="video/youtube")
+							.materials__download
+								a(href="files/1_Ruslan_Tagiev_Welcome2020.pdf" target="_blank")=download_pdf
+								a.materials__icon(href="files/1_Ruslan_Tagiev_Welcome2020.pdf" target="_blank")
+									img(src=path+"img/download.svg" alt="")
+						div
+							h3.materials__title !{r_tagiev_speech}
+							.materials__speaker !{r_tagiev}
+							.materials__vocation !{r_tagiev_vocation}
+					.materials__card
+						div
+							.materials__player
+								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true}' controls)
+									source(src=broadcast_video_url type="video/youtube")
+							.materials__download
+								a(href="files/2_Ksenia_Achkasova_Results_2020_Plans_2021.pdf" target="_blank")=download_pdf
+								a.materials__icon(href="files/2_Ksenia_Achkasova_Results_2020_Plans_2021.pdf" target="_blank")
+									img(src=path+"img/download.svg" alt="")
+						div
+							h3.materials__title !{k_achkasova_speech}
+							.materials__speaker !{k_achkasova}
+							.materials__vocation !{k_achkasova_vocation}
+					.materials__card
+						div
+							.materials__player
+								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true}' controls)
+									source(src=broadcast_video_url type="video/youtube")
+							.materials__download
+								a(href="files/3_Mikhail_Zotov_The_Ultimate_Question_42.pdf" target="_blank")=download_pdf
+								a.materials__icon(href="files/3_Mikhail_Zotov_The_Ultimate_Question_42.pdf" target="_blank")
+									img(src=path+"img/download.svg" alt="")
+						div
+							h3.materials__title !{m_zotov_speech}
+							.materials__speaker !{m_zotov}
+							.materials__vocation !{m_zotov_vocation}
+					.materials__card
+						div
+							.materials__player
+								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true}' controls)
+									source(src=broadcast_video_url type="video/youtube")
+							.materials__download
+								a(href="files/4_Marina_Pikuleva_Olesya_Starostina_BrandPulse_one_year_later.pdf" target="_blank")=download_pdf
+								a.materials__icon(href="files/4_Marina_Pikuleva_Olesya_Starostina_BrandPulse_one_year_later.pdf" target="_blank")
+									img(src=path+"img/download.svg" alt="")
+						div
+							h3.materials__title !{m_pikuleva_speech}
+							.materials__speaker !{m_pikuleva}
+							.materials__vocation !{m_pikuleva_vocation}
+							br
+							.materials__speaker !{o_starostina}
+							.materials__vocation !{o_starostina_vocation}
+					.materials__card
+						div
+							.materials__player
+								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true}' controls)
+									source(src=broadcast_video_url type="video/youtube")
+							.materials__download
+								a(href="files/5_Lev_Gleizer_Alpaca_and_Capybaras.pdf" target="_blank")=download_pdf
+								a.materials__icon(href="files/5_Lev_Gleizer_Alpaca_and_Capybaras.pdf" target="_blank")
+									img(src=path+"img/download.svg" alt="")
+						div
+							h3.materials__title !{l_gleizer_speech}
+							.materials__speaker !{l_gleizer}
+							.materials__vocation !{l_gleizer_vocation}
+
+		.screen.publications
+			.screen__inner
+				h2.title.title--lg 
+					if (ms_lang === "ru")
+						| Публикация
+					else
+						| Publication
+				.publications__table.materials__table
+					.materials__card.publications__card
 						div
 							.materials__image
 								img(src=path+"img/posters/broadcast.jpg" alt="")
 						div
-							h3.materials__title Интересный заголовок в две строчки
-							.materials__vocation Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+							h3.materials__title
+								if (ms_lang === "ru")
+									| Продвижение проекта притягивает повседневный мониторинг активности
+								else
+									| Pellentesque sodales, metus in semper mattis
+							.materials__vocation
+								a.color--teal.js-publication(href="#")
+									if (ms_lang === "ru")
+										| Подробнее
+									else
+										| Read more
+					.publications__text
+						if (ms_lang === "ru")
+							p.
+								Подмножество естественно обуславливает типичный интеграл Дирихле. Уравнение в частных производных, не вдаваясь в подробности, продуцирует интеграл Дирихле. Медийная связь концентрирует рыночный жизненный цикл продукции, осознавая социальную ответственность бизнеса. Умножение двух векторов (векторное), очевидно, реально упорядочивает сходящийся ряд, расширяя долю рынка. Медиапланирование, вопреки мнению П.Друкера, существенно экономит коллективный криволинейный интеграл. Привлечение аудитории нетривиально.
+							p.
+								Рейт-карта инновационна. Целевой сегмент рынка, в первом приближении, неоднозначен. Итак, ясно, что оценка эффективности кампании позиционирует изоморфный диктат потребителя, что неудивительно. Презентация реально синхронизирует сходящийся ряд.
+							p.
+								Продвижение проекта притягивает повседневный мониторинг активности, оптимизируя бюджеты. Постоянная величина, конечно, притягивает анормальный вектор. Производство экономит убывающий пресс-клиппинг, отвоевывая рыночный сегмент. Рекламный клаттер изменяет криволинейный интеграл. 
+						else
+							p.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae lorem in urna lobortis malesuada et quis velit. Sed feugiat lorem magna, quis pulvinar diam luctus ut. Nunc ornare neque ipsum, ut faucibus tellus sollicitudin a. Vivamus semper sollicitudin nunc sed suscipit. 
+							p.
+								Proin et ex eu nulla tempus tincidunt vel eget libero. Morbi semper, tortor ut egestas gravida, mauris quam viverra risus, ut efficitur ante felis at est. Sed vel libero ex. Suspendisse hendrerit sagittis dolor, eu placerat ipsum lacinia at. Suspendisse sollicitudin eros eu mi egestas, eu tempor elit porttitor. 
+							p.
+								Pellentesque sodales, metus in semper mattis, ex nibh egestas felis, quis lobortis sem odio in erat. Aenean consectetur euismod risus, sit amet gravida massa mollis non. Morbi commodo congue arcu a rhoncus. Vivamus posuere tristique lorem elementum egestas.
+						p
+							a.color--teal.js-publication(href="#")
+								if (ms_lang === "ru")
+									| Скрыть
+								else
+									| Hide
+				.publications__table.materials__table
+					.materials__card.publications__card
+						div
+							.materials__image
+								img(src=path+"img/posters/broadcast.jpg" alt="")
+						div
+							h3.materials__title
+								if (ms_lang === "ru")
+									| Стремящийся выставочный стенд: методология и особенности
+								else
+									| Lorem ipsum dolor
+							.materials__vocation
+								a.color--teal.js-publication(href="#")
+									if (ms_lang === "ru")
+										| Подробнее
+									else
+										| Read more
+					.publications__text
+						if (ms_lang === "ru")
+							p.
+								Подмножество естественно обуславливает типичный интеграл Дирихле. Уравнение в частных производных, не вдаваясь в подробности, продуцирует интеграл Дирихле. Медийная связь концентрирует рыночный жизненный цикл продукции, осознавая социальную ответственность бизнеса. Умножение двух векторов (векторное), очевидно, реально упорядочивает сходящийся ряд, расширяя долю рынка. Медиапланирование, вопреки мнению П.Друкера, существенно экономит коллективный криволинейный интеграл. Привлечение аудитории нетривиально.
+							p.
+								Рейт-карта инновационна. Целевой сегмент рынка, в первом приближении, неоднозначен. Итак, ясно, что оценка эффективности кампании позиционирует изоморфный диктат потребителя, что неудивительно. Презентация реально синхронизирует сходящийся ряд.
+							p.
+								Продвижение проекта притягивает повседневный мониторинг активности, оптимизируя бюджеты. Постоянная величина, конечно, притягивает анормальный вектор. Производство экономит убывающий пресс-клиппинг, отвоевывая рыночный сегмент. Рекламный клаттер изменяет криволинейный интеграл. 
+						else
+							p.
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vitae lorem in urna lobortis malesuada et quis velit. Sed feugiat lorem magna, quis pulvinar diam luctus ut. Nunc ornare neque ipsum, ut faucibus tellus sollicitudin a. Vivamus semper sollicitudin nunc sed suscipit. 
+							p.
+								Proin et ex eu nulla tempus tincidunt vel eget libero. Morbi semper, tortor ut egestas gravida, mauris quam viverra risus, ut efficitur ante felis at est. Sed vel libero ex. Suspendisse hendrerit sagittis dolor, eu placerat ipsum lacinia at. Suspendisse sollicitudin eros eu mi egestas, eu tempor elit porttitor. 
+							p.
+								Pellentesque sodales, metus in semper mattis, ex nibh egestas felis, quis lobortis sem odio in erat. Aenean consectetur euismod risus, sit amet gravida massa mollis non. Morbi commodo congue arcu a rhoncus. Vivamus posuere tristique lorem elementum egestas.
+						p
+							a.color--teal.js-publication(href="#")
+								if (ms_lang === "ru")
+									| Скрыть
+								else
+									| Hide
+
 		.screen.footer
 			.screen__inner
 				.footer__row
@@ -283,10 +417,10 @@ html(lang=ms_lang)
 									a(href="//mediascope.net" target="_black")=ms_nav_item1
 								else
 									a(href="//mediascope.net/en/" target="_black")=ms_nav_item1
-							li.menu__item
-								a(href="#speakers")=ms_nav_item2
-							li.menu__item
-								a(href="#program")=ms_nav_item3
+							// li.menu__item
+							// 	a(href="#speakers")=ms_nav_item2
+							// li.menu__item
+							// 	a(href="#program")=ms_nav_item3
 							li.menu__item
 								a(href="//conf.mediascope.net/archive/" target="_blank")=ms_nav_item5
 							li.menu__item

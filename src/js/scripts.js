@@ -62,4 +62,19 @@ $(function() {
 		}
 	});
 
+
+	$('.publications__table').on('click', '.js-publication', function(event) {
+		event.preventDefault();
+		var btn = $(this),
+			table = $(this).parents('.publications__table');
+		if (table.hasClass('publications__table--open')) {
+			table.removeClass('publications__table--open');
+		} else {
+			table.addClass('publications__table--open');			
+		}
+		setTimeout(function(){
+			$('html, body').animate({scrollTop: table.offset().top}, 500);
+		}, 300);
+	});
+
 });

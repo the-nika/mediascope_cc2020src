@@ -26,14 +26,16 @@ const gulp = require('gulp'),
 			libraries: 'src/libs/',
 			bower: 'bower_components/',
 			fonts: 'src/fonts/**/*',
-			img: 'src/img/**/*'
+			img: 'src/img/**/*',
+			pdf: 'src/pdf/**/*'
 		},
 		'dist': {
 			root: 'public_html',
 			css: 'public_html/css/',
 			js: 'public_html/js/',
 			img: 'public_html/img/',
-			fonts: 'public_html/fonts/'
+			fonts: 'public_html/fonts/',
+			pdf: 'public_html/files/'
 		}
 	},
 	cssLibs = {
@@ -219,6 +221,11 @@ function fonts() {
 		.pipe(dest(dir.dist.fonts));
 }
 
+function files() {
+	return src(dir.src.pdf)
+		.pipe(dest(dir.dist.pdf));
+}
+
 function img() {
 	return src(dir.src.img)
 		.pipe(newer(dir.dist.img))
@@ -262,6 +269,7 @@ exports.libsJs = libsJs;
 exports.html = html;
 exports.img = img;
 exports.fonts = fonts;
+exports.files = files;
 
 exports.serve = serve;
 exports.watcher = watcher;
@@ -274,6 +282,6 @@ exports.default = series(
 	parallel( css, js ), 
 	parallel( libsCss, libsJs ), 
 	parallel( html ),
-	parallel( fonts, img ),
+	parallel( fonts, img, files ),
 	parallel( serve, watcher )
 );
