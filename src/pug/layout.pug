@@ -5,6 +5,15 @@ block vars
 html(lang=ms_lang)
 
 	head
+		//- 0JL0VMP9FK
+		// Global site tag (gtag.js) - Google Analytics 
+		script(async src="https://www.googletagmanager.com/gtag/js?id=G-5ZHLBZHTGL")
+		script.
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-5ZHLBZHTGL');
+
 		meta(charset="utf-8")
 		title=ms_title
 		meta(name="viewport" content="width=device-width, initial-scale=1")
@@ -97,8 +106,8 @@ html(lang=ms_lang)
 					br
 					a.btn(href="#about-broadcast")=ms_btn_manual
 
-		//- broadcast_video_url !!!!!!!!!!
-		//- .screen.broadcast#broadcast
+		// broadcast_video_url !!!!!!!!!!
+		.screen.broadcast#broadcast
 			.screen__inner
 				h2.title.title--lg=broadcast_title
 				.broadcast__box
@@ -106,11 +115,11 @@ html(lang=ms_lang)
 						.broadcast__video
 							// img.broadcast__poster(src=path+"img/posters/broadcast.jpg" alt="")
 							// poster=path+"img/posters/broadcast.jpg"
-							video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="broadcast-video" preload="none" playsinline data-setup='{"fluid": true}' controls)
+							video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="broadcast-video" preload="none" playsinline controls data-setup='{"fluid": true, "nativeControlsForTouch": true}')
 								source(src=broadcast_video_url type="video/youtube")
 					.broadcast__panel
-						a.btn.btn--gray(href="#speakers")=ms_nav_item2
-						a.btn.btn--gray(href="#program")=ms_nav_item3
+						// a.btn.btn--gray(href="#speakers")=ms_nav_item2
+						// a.btn.btn--gray(href="#program")=ms_nav_item3
 						a.btn.btn--fill.btn--tg(href="//t.me/mediascope_bot" target="_blank")=broadcast_tg
 						a.btn.btn--fill(href=broadcast_review_url target="_blank")=broadcast_review
 		
@@ -255,11 +264,11 @@ html(lang=ms_lang)
 					.materials__card
 						div
 							.materials__player
-								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true}' controls)
-									source(src=broadcast_video_url type="video/youtube")
+								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true, "nativeControlsForTouch": true}' controls)
+									source(src=r_tagiev_video type="video/youtube")
 							.materials__download
-								a(href="files/1_Ruslan_Tagiev_Welcome2020.pdf" target="_blank")=download_pdf
-								a.materials__icon(href="files/1_Ruslan_Tagiev_Welcome2020.pdf" target="_blank")
+								a(href="/files/1_Ruslan_Tagiev_Welcome2020.pdf" target="_blank")=download_pdf
+								a.materials__icon(href="/files/1_Ruslan_Tagiev_Welcome2020.pdf" target="_blank")
 									img(src=path+"img/download.svg" alt="")
 						div
 							h3.materials__title !{r_tagiev_speech}
@@ -268,11 +277,11 @@ html(lang=ms_lang)
 					.materials__card
 						div
 							.materials__player
-								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true}' controls)
-									source(src=broadcast_video_url type="video/youtube")
+								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true, "nativeControlsForTouch": true}' controls)
+									source(src=k_achkasova_video type="video/youtube")
 							.materials__download
-								a(href="files/2_Ksenia_Achkasova_Results_2020_Plans_2021.pdf" target="_blank")=download_pdf
-								a.materials__icon(href="files/2_Ksenia_Achkasova_Results_2020_Plans_2021.pdf" target="_blank")
+								a(href="/files/2_Ksenia_Achkasova_Results_2020_Plans_2021.pdf" target="_blank")=download_pdf
+								a.materials__icon(href="/files/2_Ksenia_Achkasova_Results_2020_Plans_2021.pdf" target="_blank")
 									img(src=path+"img/download.svg" alt="")
 						div
 							h3.materials__title !{k_achkasova_speech}
@@ -281,11 +290,11 @@ html(lang=ms_lang)
 					.materials__card
 						div
 							.materials__player
-								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true}' controls)
-									source(src=broadcast_video_url type="video/youtube")
+								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true, "nativeControlsForTouch": true}' controls)
+									source(src=m_zotov_video type="video/youtube")
 							.materials__download
-								a(href="files/3_Mikhail_Zotov_The_Ultimate_Question_42.pdf" target="_blank")=download_pdf
-								a.materials__icon(href="files/3_Mikhail_Zotov_The_Ultimate_Question_42.pdf" target="_blank")
+								a(href="/files/3_Mikhail_Zotov_The_Ultimate_Question_42.pdf" target="_blank")=download_pdf
+								a.materials__icon(href="/files/3_Mikhail_Zotov_The_Ultimate_Question_42.pdf" target="_blank")
 									img(src=path+"img/download.svg" alt="")
 						div
 							h3.materials__title !{m_zotov_speech}
@@ -294,11 +303,11 @@ html(lang=ms_lang)
 					.materials__card
 						div
 							.materials__player
-								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true}' controls)
-									source(src=broadcast_video_url type="video/youtube")
+								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true, "nativeControlsForTouch": true}' controls)
+									source(src=m_pikuleva_video type="video/youtube")
 							.materials__download
-								a(href="files/4_Marina_Pikuleva_Olesya_Starostina_BrandPulse_one_year_later.pdf" target="_blank")=download_pdf
-								a.materials__icon(href="files/4_Marina_Pikuleva_Olesya_Starostina_BrandPulse_one_year_later.pdf" target="_blank")
+								a(href="/files/4_Marina_Pikuleva_Olesya_Starostina_BrandPulse_one_year_later.pdf" target="_blank")=download_pdf
+								a.materials__icon(href="/files/4_Marina_Pikuleva_Olesya_Starostina_BrandPulse_one_year_later.pdf" target="_blank")
 									img(src=path+"img/download.svg" alt="")
 						div
 							h3.materials__title !{m_pikuleva_speech}
@@ -310,11 +319,11 @@ html(lang=ms_lang)
 					.materials__card
 						div
 							.materials__player
-								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true}' controls)
-									source(src=broadcast_video_url type="video/youtube")
+								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true, "nativeControlsForTouch": true}' controls)
+									source(src=l_gleizer_video type="video/youtube")
 							.materials__download
-								a(href="files/5_Lev_Gleizer_Alpaca_and_Capybaras.pdf" target="_blank")=download_pdf
-								a.materials__icon(href="files/5_Lev_Gleizer_Alpaca_and_Capybaras.pdf" target="_blank")
+								a(href="/files/5_Lev_Gleizer_Alpaca_and_Capybaras.pdf" target="_blank")=download_pdf
+								a.materials__icon(href="/files/5_Lev_Gleizer_Alpaca_and_Capybaras.pdf" target="_blank")
 									img(src=path+"img/download.svg" alt="")
 						div
 							h3.materials__title !{l_gleizer_speech}
