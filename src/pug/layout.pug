@@ -5,14 +5,16 @@ block vars
 html(lang=ms_lang)
 
 	head
-		//- 0JL0VMP9FK
+		//- ВЕРНУТЬ ID СЧЕТЧИКА на 12 и 17 строки!!!!!!!!!!!!!!!!
+		//- 1. 0JL0VMP9FK
+		//- 2. ТЕСТОВЫЙ G-5ZHLBZHTGL
 		// Global site tag (gtag.js) - Google Analytics 
-		script(async src="https://www.googletagmanager.com/gtag/js?id=G-5ZHLBZHTGL")
+		script(async src="https://www.googletagmanager.com/gtag/js?id=")
 		script.
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
 			gtag('js', new Date());
-			gtag('config', 'G-5ZHLBZHTGL');
+			gtag('config', 'G-');
 
 		meta(charset="utf-8")
 		title=ms_title
@@ -30,8 +32,7 @@ html(lang=ms_lang)
 		meta(name="theme-color" content="#ffffff")
 		// .......... End Favicons .......... 
 
-		meta(property="og:image" content="http://mediascope.nvspace.ru/img/mediascope.png")
-		//-https://conf.mediascope.net/img/logo_mediascope.png")
+		meta(property="og:image" content="https://conf.mediascope.net/img/mediascope.png")
 
 		// .......... Styles .......... 
 		style.
@@ -117,9 +118,9 @@ html(lang=ms_lang)
 							// poster=path+"img/posters/broadcast.jpg"
 							video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(id="broadcast-video" preload="none" playsinline controls data-setup='{"fluid": true, "nativeControlsForTouch": true}')
 								source(src=broadcast_video_url type="video/youtube")
-					.broadcast__panel
-						// a.btn.btn--gray(href="#speakers")=ms_nav_item2
-						// a.btn.btn--gray(href="#program")=ms_nav_item3
+					// .broadcast__panel
+						a.btn.btn--gray(href="#speakers")=ms_nav_item2
+						a.btn.btn--gray(href="#program")=ms_nav_item3
 						a.btn.btn--fill.btn--tg(href="//t.me/mediascope_bot" target="_blank")=broadcast_tg
 						a.btn.btn--fill(href=broadcast_review_url target="_blank")=broadcast_review
 		
@@ -263,52 +264,33 @@ html(lang=ms_lang)
 				.materials__table
 					.materials__card
 						div
-							.materials__player
-								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true, "nativeControlsForTouch": true}' controls)
-									source(src=r_tagiev_video type="video/youtube")
-							.materials__download
-								a(href="/files/1_Ruslan_Tagiev_Welcome2020.pdf" target="_blank")=download_pdf
-								a.materials__icon(href="/files/1_Ruslan_Tagiev_Welcome2020.pdf" target="_blank")
-									img(src=path+"img/download.svg" alt="")
-						div
 							h3.materials__title !{r_tagiev_speech}
 							.materials__speaker !{r_tagiev}
 							.materials__vocation !{r_tagiev_vocation}
-					.materials__card
-						div
-							.materials__player
-								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true, "nativeControlsForTouch": true}' controls)
-									source(src=k_achkasova_video type="video/youtube")
 							.materials__download
-								a(href="/files/2_Ksenia_Achkasova_Results_2020_Plans_2021.pdf" target="_blank")=download_pdf
-								a.materials__icon(href="/files/2_Ksenia_Achkasova_Results_2020_Plans_2021.pdf" target="_blank")
+								a.materials__icon(href="/files/1_Ruslan_Tagiev_Welcome2020.pdf" target="_blank")
 									img(src=path+"img/download.svg" alt="")
+								a(href="/files/1_Ruslan_Tagiev_Welcome2020.pdf" target="_blank")=download_pdf
+					.materials__card
 						div
 							h3.materials__title !{k_achkasova_speech}
 							.materials__speaker !{k_achkasova}
 							.materials__vocation !{k_achkasova_vocation}
-					.materials__card
-						div
-							.materials__player
-								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true, "nativeControlsForTouch": true}' controls)
-									source(src=m_zotov_video type="video/youtube")
 							.materials__download
-								a(href="/files/3_Mikhail_Zotov_The_Ultimate_Question_42.pdf" target="_blank")=download_pdf
-								a.materials__icon(href="/files/3_Mikhail_Zotov_The_Ultimate_Question_42.pdf" target="_blank")
+								a.materials__icon(href="/files/2_Ksenia_Achkasova_Results_2020_Plans_2021.pdf" target="_blank")
 									img(src=path+"img/download.svg" alt="")
+								a(href="/files/2_Ksenia_Achkasova_Results_2020_Plans_2021.pdf" target="_blank")=download_pdf
+					.materials__card
 						div
 							h3.materials__title !{m_zotov_speech}
 							.materials__speaker !{m_zotov}
 							.materials__vocation !{m_zotov_vocation}
-					.materials__card
-						div
-							.materials__player
-								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true, "nativeControlsForTouch": true}' controls)
-									source(src=m_pikuleva_video type="video/youtube")
 							.materials__download
-								a(href="/files/4_Marina_Pikuleva_Olesya_Starostina_BrandPulse_one_year_later.pdf" target="_blank")=download_pdf
-								a.materials__icon(href="/files/4_Marina_Pikuleva_Olesya_Starostina_BrandPulse_one_year_later.pdf" target="_blank")
+								a.materials__icon(href="/files/3_Mikhail_Zotov_The_Ultimate_Question_42.pdf" target="_blank")
 									img(src=path+"img/download.svg" alt="")
+								a(href="/files/3_Mikhail_Zotov_The_Ultimate_Question_42.pdf" target="_blank")=download_pdf
+								
+					.materials__card
 						div
 							h3.materials__title !{m_pikuleva_speech}
 							.materials__speaker !{m_pikuleva}
@@ -316,21 +298,22 @@ html(lang=ms_lang)
 							br
 							.materials__speaker !{o_starostina}
 							.materials__vocation !{o_starostina_vocation}
-					.materials__card
-						div
-							.materials__player
-								video.video-js.vjs-default-skin.vjs-big-play-centered.vjs-show-big-play-button-on-pause(preload="none" playsinline data-setup='{"fluid": true, "nativeControlsForTouch": true}' controls)
-									source(src=l_gleizer_video type="video/youtube")
+							br
 							.materials__download
-								a(href="/files/5_Lev_Gleizer_Alpaca_and_Capybaras.pdf" target="_blank")=download_pdf
-								a.materials__icon(href="/files/5_Lev_Gleizer_Alpaca_and_Capybaras.pdf" target="_blank")
+								a.materials__icon(href="/files/4_Marina_Pikuleva_Olesya_Starostina_BrandPulse_one_year_later.pdf" target="_blank")
 									img(src=path+"img/download.svg" alt="")
+								a(href="/files/4_Marina_Pikuleva_Olesya_Starostina_BrandPulse_one_year_later.pdf" target="_blank")=download_pdf
+					.materials__card
 						div
 							h3.materials__title !{l_gleizer_speech}
 							.materials__speaker !{l_gleizer}
 							.materials__vocation !{l_gleizer_vocation}
+							.materials__download
+								a.materials__icon(href="/files/5_Lev_Gleizer_Alpaca_and_Capybaras.pdf" target="_blank")
+									img(src=path+"img/download.svg" alt="")
+								a(href="/files/5_Lev_Gleizer_Alpaca_and_Capybaras.pdf" target="_blank")=download_pdf
 
-		.screen.publications
+		//- .screen.publications
 			.screen__inner
 				h2.title.title--lg 
 					if (ms_lang === "ru")

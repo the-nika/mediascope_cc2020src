@@ -513,8 +513,9 @@ p{
 			width: size_lg(230px);
 		}
 		&__player{
-			width: size_lg(738px - 96px);
-			padding-right: size_lg(738px - 706px);
+			width: 100%;
+			// width: size_lg(738px - 96px);
+			// padding-right: size_lg(738px - 706px);
 			box-sizing: border-box;
 		}
 		&__video{
@@ -763,6 +764,9 @@ p{
 		font-weight: normal;
 		line-height: fz_sm(33.6px);
 		margin-top: size_sm(8px);
+		br{
+			display: none;
+		}
 	}
 	&__speaker{
 		font-family: $ff_mono;
@@ -809,12 +813,31 @@ p{
 					padding-bottom: size_lg(80px);
 				}
 			}
+			&:not(.publications__card) > div{
+				max-width: 100%;
+				flex-basis: 100%;
+			}
+		}
+		&__table{
+			display: flex;
+			align-items: flex-start;
+			flex-wrap: wrap;
+		}
+		.materials__card{
+			flex: 0 0 33.3332%;
+			padding-right: size_lg(36px);
+			box-sizing: border-box;
+			> *:last-child{
+				padding-bottom: 0;
+			}
 		}
 		&__download{
-			font-size: fz_lg(24px);
+			font-size: fz_lg(18px);
 			line-height: fz_lg(40.8px);
 			padding: size_lg(24px) 0 0;
 			border: none;
+
+			max-width: size_lg(280px);
 		}
 		&__icon img{
 			width: size_lg(37px);
@@ -822,19 +845,27 @@ p{
 		}
 		&__title,
 		&__speaker{
-			margin: 0 0 size_lg(16px);
+			margin: 0 0 size_lg(6px);
 		}
 		&__title{
-			font-size: fz_lg(36px);
-			line-height: fz_lg(40.8px);
+			font-size: fz_lg(24px);
+			line-height: 120%;
 			margin-top: 0;//size_lg(24px);
 		}
 		&__speaker{
-			font-size: fz_lg(24px);
+			font-size: fz_lg(18px);
 		}
 		&__vocation{
-			font-size: fz_lg(19px);
-			line-height: fz_lg(26.6px);
+			font-size: fz_lg(16px);
+			line-height: 130%;
+		}
+	}
+}
+
+html[lang="en"]{
+	.materials__download{
+		@media ($is_landscape) {
+			max-width: size_lg(170px);
 		}
 	}
 }
