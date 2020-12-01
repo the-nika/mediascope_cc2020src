@@ -497,16 +497,16 @@ p{
 			> *{
 				flex: 0 0 auto;
 			}
-			&::after{
-				content: '';
-				display: block;
-				position: absolute;
-				left: size_lg(738px - 64px);
-				top: 0;
-				width: size_lg(1px);
-				bottom: 0;
-				background-color: $gray;
-			}
+			// &::after{
+			// 	content: '';
+			// 	display: block;
+			// 	position: absolute;
+			// 	left: size_lg(738px - 64px);
+			// 	top: 0;
+			// 	width: size_lg(1px);
+			// 	bottom: 0;
+			// 	background-color: $gray;
+			// }
 		}
 		&__panel{
 			margin-left: size_lg(50px);
